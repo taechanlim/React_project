@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom"
+import Feed from "./Feeds/Feed";
+
 
 function Index(){
     return(
@@ -8,7 +10,7 @@ function Index(){
             <Link to="/login">로그인</Link> <br />
             <Link to="/register">회원가입</Link> <br />
             <Link to="/minihomepage">미니홈피</Link> <br />
-            <div style={{position:"absolute",right:"700px",color:"red"}}><h1>여기는 피드 들어감</h1></div>
+            <div style={{position:"absolute",right:"700px",color:"red"}}><h1><Feed /></h1></div>
         </div>
     )
 }
