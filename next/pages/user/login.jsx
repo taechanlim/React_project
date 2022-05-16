@@ -1,28 +1,69 @@
+import {useState,useEffect} from 'react'
+
 const Login = () => {
+
+    const [values,setValues] = useState({userid:'',password:''})
+    const [submit,setSubmit] = useState(false)
+    const [isLogin,setisLogin] = useState()
+
+    const handleChange = (e) => {
+        // console.log(e.target.name,e.target.value)
+        const {name,value} = e.target
+        setValues({
+            ...values,
+            [name]:value
+        })
+    }
+
+    const logout = e => {
+        setisLogin(false)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setSubmit(true)
+        
+        setTimeout(()=>{
+            const result=true //const [result] = await axios.post('http://localhost:4000/api/user/login)
+            if(result === true){
+                setisLogin(true)
+                alert(`
+                    아이디 : ${values.userid}
+                `)
+            }else{
+                alert('로그인실패')
+            }
+            setSubmit(false)
+        },1000)
+    }
+
+    useEffect(()=>{
+        // console.log('helloworld')
+         
+    },[isLogin]) //isLogin이 바뀔때마다 코드실행
+
     return(
         <>
-            <form>
-                아이디 : <input type='text' name="userid" placeholder="아이디를 입력해주세요"></input> <br />
-                비밀번호 : <input type='password' name="userpw" placeholder="비밀번호를 입력해주세요"></input> <br />
-                <input type="submit" value="로그인"></input>
-            </form>
+             <form onSubmit={handleSubmit}>
+            <ul>
+                <li>
+                    <label>이메일</label>
+                    <input type="text" name="userid" onChange={handleChange} />
+                </li>
+                <li>
+                    <label>패스워드</label>
+                    <input type="password" name="password" onChange={handleChange} />
+                </li>
+                <li>
+                {isLogin ? <button onClick={logout}>로그아웃</button> : <input type="submit" value="로그인" disabled={submit} />}
+                </li>
+            </ul>
+
+           
+        </form>
         </>
     )
 }
-
-// export async function getServerSideProps(){
-//     console.log ('hello server')
-//     // await axios 로 데이터를 받아와서 아래 props로 넘겨주면 OK (글번호,제목,내용,작성자등 받아와서)
-//     const result = await axios.get('http://localhost:3500/comment/list')
-//     const list = result.data.result
-    
-//     return{
-//         props:{
-//             list:list
-//         }
-//     }
-// }
-
 
 
 export default Login
