@@ -1,12 +1,4 @@
 import { Link } from "react-router-dom"
-// import useForm from "../../Hooks/useForm"
-// import validate from "../../utils/validate/login.js"
-// import { useSelector,useDispatch } from "react-redux"
-// import { user_login_request } from "../../reducers/user"
-// import AuthLayout, { Footer } from "../../Components/auth/AuthLayout"
-// import { AuthInputBox } from "../../Components/form/inputs"
-// import { StyledButton } from "../../Components/form/buttons"
-
 
 function Login(){
     
