@@ -12,7 +12,9 @@ const DefaultLayout = ({children}) => {
                 <Col>
                     <Menu.Item><Link href="/">홈으로</Link></Menu.Item>
                     <Menu.Item><Link href="/user/login">로그인</Link></Menu.Item>
+                    <Menu.Item><Link href="/user/register">회원가입</Link></Menu.Item>
                     <Menu.Item><Link href="/user/minihomepage">미니홈피</Link></Menu.Item>
+
                 </Col>
                 </Menu>
                 </Row>
