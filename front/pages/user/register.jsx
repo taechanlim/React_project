@@ -11,7 +11,7 @@ const Register = () => {
     const onNameHandler = (event) =>{
         setUserid(event.target.value)
     }
-    const onEmailHandler = (event) =>{
+    const onNickname = (event) =>{
         setNickname(event.target.value)
     }
     const onPasswordHandler = (event) =>{
@@ -41,7 +41,7 @@ const Register = () => {
         <div class="loginregister">
             <form onSubmit={onSubmit}>
                 <div><input name="userid" type="text" placeholder="이름" value={userid} onChange={onNameHandler}/></div>
-                <div><input name="nickname" type="text" placeholder="이메일" value={nickname} onChange={onEmailHandler}/></div>
+                <div><input name="nickname" type="text" placeholder="이메일" value={nickname} onChange={onNickname}/></div>
                 <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
                 <div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler}/></div>
                 <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div>
@@ -49,18 +49,6 @@ const Register = () => {
             </form>
         </div>
     )
-
-    // return(
-    //     <>
-    //         <form>
-    //             <input type="text" placeholder="아이디를 입력해주세요"></input> <br />
-    //             <input type="password" placeholder="비밀번호를 입력해주세요"></input> <br />
-    //             <input type="text" placeholder="닉네임을 입력해주세요"></input> <br />
-    //             <input type="text" placeholder="번호를 입력해주세요"></input> <br />
-    //             <input type="submit" value="회원가입"></input>
-    //         </form>
-    //     </>
-    // )
 }
 
 export default Register

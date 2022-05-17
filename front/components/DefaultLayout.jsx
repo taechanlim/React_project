@@ -6,7 +6,11 @@ import Footer from './Footer'
 
 const DefaultLayout = ({children}) => {
     return(
-        <>
+        <>      
+        {/* 카카오 로그인 임시 */}
+        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+        <script>Kakao.init("자바스크립트 앱키");</script>
+
                 <h1><Link href="/">LOGO</Link></h1>
                 <br />
                 <Col>

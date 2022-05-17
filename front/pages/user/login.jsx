@@ -1,5 +1,6 @@
-import {useState,useEffect} from 'react'
+import React,{useState,useEffect} from 'react'
 const axios = require('axios')
+import Kakao from './kakao'
 
 
 const Login = () => {
@@ -58,11 +59,16 @@ const Login = () => {
                     <input type="password" name="password" onChange={handleChange} />
                 </li>
                 <li>
-                {isLogin ? <button onClick={logout}>로그아웃</button> : <input type="submit" value="로그인" disabled={submit} />}
+                {isLogin 
+                ? <button onClick={logout}>로그아웃</button> 
+                : 
+                <>
+                    <input type="submit" value="로그인" disabled={submit}/>
+                    <Kakao/>
+                </>
+                }
                 </li>
             </ul>
-
-           
         </form>
         </>
     )
