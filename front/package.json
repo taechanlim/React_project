@@ -14,5 +14,12 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start"
-  }
+  },
+  "name": "front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
