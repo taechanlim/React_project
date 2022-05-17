@@ -1,4 +1,6 @@
 import {useState,useEffect} from 'react'
+const axios = require('axios')
+
 
 const Login = () => {
 
@@ -24,12 +26,13 @@ const Login = () => {
         setSubmit(true)
         
         setTimeout(()=>{
-            const result=true //const [result] = await axios.post('http://localhost:4000/api/user/login)
+            const result=true //const [result] = await axios.post('http://localhost:4001/api/user/login)
             if(result === true){
                 setisLogin(true)
                 alert(`
                     아이디 : ${values.userid}
                 `)
+                location.href='/'
             }else{
                 alert('로그인실패')
             }

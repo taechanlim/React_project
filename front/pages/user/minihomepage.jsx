@@ -1,4 +1,5 @@
 const Minihomepage = () => {
+    
     return(
         <>
             미니홈피

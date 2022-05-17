@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import {Menu,Row,Col} from 'antd'
 import {MailOutlined , AppstoreOutlined, SettingOutlined} from '@ant-design/icons'
+import Footer from './Footer'
+
 
 const DefaultLayout = ({children}) => {
     return(
@@ -25,7 +27,7 @@ const DefaultLayout = ({children}) => {
             </div>
             <br /><br /><br /><br />
             <div>
-                <h3>footer</h3>
+                <h3><Footer /></h3>
             </div>
             
         </>
