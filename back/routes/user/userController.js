@@ -44,3 +44,37 @@ exports.register = async (req,res)=>{
         res.json(response)
         }
 }
+
+
+exports.login = async (req,res)=>{
+    const {userid,userpw} = req.body
+    console.log(userid,userpw)
+    const sql = `SELECT userid,nickname,phonenumber,active FROM user WHERE userid=? and userpw=? and active=1`
+    const prepare = [userid,userpw]
+
+    try{
+        const [result] = await pool.execute(sql,prepare)
+
+        if(result.length <= 0) throw new Error('회원이 아닙니다')
+        const jwt = createToken(result[0])
+    
+        res.cookie('token',jwt,{
+            path:'/', 
+            secure:true,
+            domain:'localhost'
+        })
+
+        const response = {
+            result,
+            errno:0,
+        }
+        res.json(response)
+
+    }catch(e){
+        const response = {
+            result:[],
+            errno:1,
+        }
+        res.json(response)
+    }
+}
