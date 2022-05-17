@@ -1,30 +1,30 @@
 import React, { useState } from "react"
 
 const Register = () => {
-    const [name,setName] = useState('')
-    const [email,setEmail] = useState('')
-    const [password,setPassword] = useState('')
+    const [userid,setUserid] = useState('')
+    const [nickname,setNickname] = useState('')
+    const [userpw,setUserpw] = useState('')
     const [confirmPassword,setConfirmPassword] = useState('')
-    const [phone,setPhone] = useState('')
+    const [phonenumber,setPhonenumber] = useState('')
     
     const onNameHandler = (event) =>{
-        setName(event.currenTarget.value)
+        setUserid(event.currenTarget.value)
     }
     const onEmailHandler = (event) =>{
-        setEmail(event.currenTarget.value)
+        setNickname(event.currenTarget.value)
     }
     const onPasswordHandler = (event) =>{
-        setPassword(event.currenTarget.value)
+        setUserpw(event.currenTarget.value)
     }
     const onConfirmPasswordHandler = (event)=>{
         setConfirmPassword(event.currenTarget.value)
     }
     const onPhoneHandler = ( event)=>{
-        setPhone(event.currenTarget.value)
+        setPhonenumber(event.currenTarget.value)
     }
     const onSubmit = (event) =>{
         event.preventDefault()
-        if(password !== confirmPassword){
+        if(userpw !== confirmPassword){
             return alert('비밀번호와 비밀번호 확인이 불일치')
         }else{
             return alert('성공되다 가입')
@@ -33,11 +33,11 @@ const Register = () => {
     return(
         <div class="loginregister">
             <form>
-                <div><input name="name" type="text" placeholder="이름" value={name} onChange={onNameHandler}/></div>
-                <div><input name="email" type="email" placeholder="이메일" value={email} onChange={onEmailHandler}/></div>
-                <div><input name="password" type="password" placeholder="비밀번호" value={password} onChange={onPasswordHandler}/></div>
+                <div><input name="userid" type="text" placeholder="이름" value={userid} onChange={onNameHandler}/></div>
+                <div><input name="nickname" type="text" placeholder="이메일" value={nickname} onChange={onEmailHandler}/></div>
+                <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
                 <div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler}/></div>
-                <div><input name="Phone" type="text" placeholder="핸드폰" value={phone} onChange={onPhoneHandler}/></div>
+                <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div>
                 <div><button type="submit" onSubmit={onSubmit}>계정 생성하기</button></div>
             </form>
         </div>
