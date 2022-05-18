@@ -4,7 +4,7 @@ const feedController = require('./feedController.js')
 
 
 router.post('/list',feedController.list)
-
+router.post('/view',feedController.view)
 
 
 
