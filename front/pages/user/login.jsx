@@ -1,6 +1,8 @@
-import {useState,useEffect} from 'react'
+import React,{useState,useEffect} from 'react'
 const axios = require('axios')
 import { useCookies } from 'react-cookie';
+import Update from './update';
+import Link from 'next/link'
 
 
 const Login = () => {
@@ -67,7 +69,11 @@ const Login = () => {
              <form onSubmit={handleSubmit}>
             <ul>
                 
-                {isLogin ? <li><button onClick={logout}>로그아웃</button></li> :  <>
+                {isLogin 
+                ? <> <li><button onClick={logout}>로그아웃</button></li> 
+                <Link href='/user/update'>프로필 수정</Link>
+                </>
+                :  <>
                 <li>
                     <label>아이디</label>
                     <input type="text" name="userid" onChange={handleChange} />
@@ -80,8 +86,6 @@ const Login = () => {
                 </>}
                 
             </ul>
-
-           
         </form>
         </>
     )
