@@ -1,34 +1,31 @@
 import Link from 'next/link'
-import {Menu,Row,Col} from 'antd'
-import {MailOutlined , AppstoreOutlined, SettingOutlined} from '@ant-design/icons'
+import { Menu, Row, Col } from 'antd'
+import { MailOutlined, AppstoreOutlined, SettingOutlined ,PlayCircleOutlined} from '@ant-design/icons'
 import Footer from './Footer'
+//import styles from 'layout.module.css'
 
 
-const DefaultLayout = ({children}) => {
-    return(
+const DefaultLayout = ({ children }) => {
+    return (
         <>      
-        {/* 카카오 로그인 임시 */}
-        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-        <script>Kakao.init("자바스크립트 앱키");</script>
+            <img src="/static/logo.png" />
+            
+            <Col>
+                <Menu theme='dark' mode="horizontal" style={{ display : 'flex', justifyContent:"center"}}>
 
-                <h1><Link href="/">LOGO</Link></h1>
-                <br />
-                <Col>
-                <Menu theme='dark' mode="horizontal">
-                
-                <Row>
-                    <Menu.Item><Link href="/">홈으로</Link></Menu.Item>
-                    <Menu.Item><Link href="/user/login">로그인</Link></Menu.Item>
-                    <Menu.Item><Link href="/user/register">회원가입</Link></Menu.Item>
-                    <Menu.Item><Link href="/user/minihomepage">미니홈피</Link></Menu.Item>
-                    <Menu.Item><Link href="/feed/write">New 피드작성</Link></Menu.Item>
-                </Row>
-                
+                    <Row>
+                        <Menu.Item icon ={<PlayCircleOutlined />}><Link href="/">홈으로</Link></Menu.Item>
+                        <Menu.Item icon ={<MailOutlined />}><Link href="/user/login">로그인</Link></Menu.Item>
+                        <Menu.Item icon ={<AppstoreOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
+                        <Menu.Item icon ={<SettingOutlined />}><Link href="/user/minihomepage">미니홈피</Link></Menu.Item>
+                        <Menu.Item><Link href="/feed/write">New 피드작성</Link></Menu.Item>
+                    </Row>
+
                 </Menu>
-                </Col>
-                
-               
-                
+            </Col>
+
+
+
             <div>
                 {children}
             </div>
@@ -36,7 +33,7 @@ const DefaultLayout = ({children}) => {
             <div>
                 <h3><Footer /></h3>
             </div>
-            
+
         </>
     )
 }

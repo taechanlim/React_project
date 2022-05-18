@@ -4,7 +4,7 @@ const userController = require('./userController.js')
 // const { upload } = require('../../utils/uploads_user.js')
 
 router.post('/register',userController.register)
-// router.post('/login',userController.login)
+router.post('/login',userController.login)
 
 
 
