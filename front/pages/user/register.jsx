@@ -31,6 +31,7 @@ const Register = () => {
         try{
         const result = await axios.post('http://localhost:4001/api/user/register',body) 
         console.log(result);
+        alert('계정이 생성되었다.')
         location.href='/'
         } catch(error){
             alert(error)
