@@ -32,3 +32,35 @@ exports.list = async (req,res)=>{
         res.json(response)
         }
 }
+
+
+exports.view = async (req,res)=>{
+    
+    const idx = req.query
+    
+    
+    const sql = `SELECT * FROM board WHERE idx=?`
+    
+    const prepare = [idx]
+    let response = {
+        errno:0
+    }
+    try{
+        const [result] = await pool.execute(sql,prepare)
+                         
+                        
+        response = {
+            ...response,
+            result
+        }
+        
+    }catch(e){
+            {
+                console.log(e.message)
+                response={
+                    errno:1
+                }
+            }
+    }
+    res.json(response)
+}

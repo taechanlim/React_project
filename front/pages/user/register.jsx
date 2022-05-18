@@ -31,6 +31,7 @@ const Register = () => {
         try{
         const result = await axios.post('http://localhost:4001/api/user/register',body) 
         console.log(result);
+        location.href='/'
         } catch(error){
             alert(error)
         }
@@ -39,11 +40,11 @@ const Register = () => {
         <div class="loginRegister">
             <form onSubmit={onSubmit}>
                 <div><input name="userid" type="text" placeholder="이름" value={userid} onChange={onNameHandler}/></div>
-                <div><input name="nickname" type="text" placeholder="이메일" value={nickname} onChange={onNickname}/></div>
+                <div><input name="nickname" type="text" placeholder="닉네임" value={nickname} onChange={onNickname}/></div>
                 <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
                 <div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler}/></div>
                 <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div>
-                <div><button type="submit">계정 업데이트</button></div>
+                <div><button type="submit">계정 생성</button></div>
             </form>
         </div>
     )

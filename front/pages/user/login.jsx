@@ -71,7 +71,7 @@ const Login = () => {
                 
                 {isLogin 
                 ? <> <li><button onClick={logout}>로그아웃</button></li> 
-                <Link href='/user/update'>프로필 수정</Link>
+                <Link href='/user/update'>프로필 수정/탈퇴</Link>
                 </>
                 :  <>
                 <li>
