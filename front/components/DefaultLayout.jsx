@@ -27,7 +27,7 @@ const DefaultLayout = ({ children }) => {
 
                     <Row>
                         <Menu.Item icon ={<PlayCircleOutlined />}><Link href="/">홈으로</Link></Menu.Item>
-                        {isCookie ? <Menu.Item icon ={<MailOutlined />}><Link href="/user/login">로그아웃</Link></Menu.Item>
+                        {isCookie ? <Menu.Item icon ={<MailOutlined />}><Link href="/user/login">로그아웃/프로필수정</Link></Menu.Item>
                                   : <Menu.Item icon ={<MailOutlined />}><Link href="/user/login">로그인</Link></Menu.Item>
                         }
                         
