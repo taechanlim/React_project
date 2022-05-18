@@ -84,10 +84,10 @@ exports.update = async (req,res)=>{
     const {token,userpw,nickname,phonenumber} = req.body
     const [,payload,] = token.split('.')
     const decodingPayload = Buffer.from(payload,'base64').toString()
-    const nickname1 = JSON.parse(decodingPayload).nickname
-    console.log(nickname1)
+    const userid = JSON.parse(decodingPayload).userid
+    console.log(userid)
 
-    const sql = `UPDATE user SET userpw = ?, nickname=? , phonenumber=? WHERE nickname = '${nickname1}'`
+    const sql = `UPDATE user SET userpw = ?, nickname=? , phonenumber=? WHERE userid = '${userid}'`
     
     
     const prepare = [userpw,nickname,phonenumber]
@@ -113,7 +113,7 @@ exports.update = async (req,res)=>{
                 row:0,
                 id:0
             },
-            errno:e.errno,
+            errno:1,
         }
         res.json(response)
         }
