@@ -113,7 +113,7 @@ exports.update = async (req,res)=>{
                 row:0,
                 id:0
             },
-            errno:e.errno,
+            errno:1,
         }
         res.json(response)
         }

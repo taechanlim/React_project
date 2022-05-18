@@ -24,15 +24,17 @@ const Update = ()=>{
         event.preventDefault()
         const result = await axios.post('http://localhost:4001/api/user/update',body) 
         console.log(result);
-        return(
-            alert('계정의 수정이 완료')
-        )
+        if(result.data.errno == 0){
+            alert('계정 수정이 완료')
+            location.href='/'
+        }
+
     }
     return(
         <>
          <div class="loginUpdate">
             <form onSubmit={onSubmit}>
-                <div><input name="nickname" type="text" placeholder="이메일" value={nickname} onChange={onNickname}/></div>
+                <div><input name="nickname" type="text" placeholder="닉네임" value={nickname} onChange={onNickname}/></div>
                 <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
                 <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div>
                 <div><button type="submit">계정 업데이트</button></div>
