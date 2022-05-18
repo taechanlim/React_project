@@ -1,52 +1,44 @@
-import React, { useState } from "react"
+import React,{useState,useEffect} from 'react'
 const axios = require('axios')
-
-const Register = () => {
-    const [userid,setUserid] = useState('')
+const Update = ()=>{
     const [nickname,setNickname] = useState('')
     const [userpw,setUserpw] = useState('')
-    const [confirmPassword,setConfirmPassword] = useState('')
     const [phonenumber,setPhonenumber] = useState('')
     
-    const onNameHandler = (event) =>{
-        setUserid(event.target.value)
-    }
     const onNickname = (event) =>{
         setNickname(event.target.value)
     }
     const onPasswordHandler = (event) =>{
         setUserpw(event.target.value)
     }
-    const onConfirmPasswordHandler = (event)=>{
-        setConfirmPassword(event.target.value)
-    }
     const onPhoneHandler = (event)=>{
         setPhonenumber(event.target.value)
     }
 
-    const body = {userid,userpw,nickname,phonenumber}
+
+    const token = document.cookie
+    const body = {nickname,userpw,phonenumber,token}
+    console.log(body);
 
     const onSubmit = async (event) =>{
         event.preventDefault()
-        try{
         const result = await axios.post('http://localhost:4001/api/user/register',body) 
         console.log(result);
-        } catch(error){
-            alert(error)
-        }
+        return(
+            alert('계정의 수정이 완료')
+        )
     }
     return(
-        <div class="loginRegister">
+        <>
+         <div class="loginUpdate">
             <form onSubmit={onSubmit}>
-                <div><input name="userid" type="text" placeholder="이름" value={userid} onChange={onNameHandler}/></div>
                 <div><input name="nickname" type="text" placeholder="이메일" value={nickname} onChange={onNickname}/></div>
                 <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
-                <div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler}/></div>
                 <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div>
                 <div><button type="submit">계정 업데이트</button></div>
             </form>
         </div>
+        </>
     )
 }
-
-export default Register
+export default Update;
