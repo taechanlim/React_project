@@ -118,3 +118,40 @@ exports.update = async (req,res)=>{
         res.json(response)
         }
 }
+
+exports.delete = async (req,res)=>{
+    const {token} = req.body
+    const [,payload,] = token.split('.')
+    const decodingPayload = Buffer.from(payload,'base64').toString()
+    const userid = JSON.parse(decodingPayload).userid
+    console.log(req.body);
+    const sql = `DELETE from user where userid = '${userid}'`
+    
+    const prepare = [token]
+    try{
+        const [result] = await pool.execute(sql,prepare)
+            
+        const response = {
+            result:{
+                row:result.affectedRows,
+                id:result.insertId
+            },
+            errno:0,
+        }
+    
+        res.json(response)
+        
+    
+        }catch(e){
+        console.log(e.message)
+        console.log(e)
+        const response = {
+            result:{
+                row:0,
+                id:0
+            },
+            errno:1,
+        }
+        res.json(response)
+        }
+}
