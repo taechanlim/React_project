@@ -82,12 +82,15 @@ exports.login = async (req,res)=>{
 
 exports.update = async (req,res)=>{
     const {token,userpw,nickname,phonenumber} = req.body
-    console.log(req.body)
-        
-    const sql = `UPDATE user `
+    const [,payload,] = token.split('.')
+    const decodingPayload = Buffer.from(payload,'base64').toString()
+    const nickname1 = JSON.parse(decodingPayload).nickname
+    console.log(nickname1)
+
+    const sql = `UPDATE user SET userpw = ?, nickname=? , phonenumber=? WHERE nickname = '${nickname1}'`
     
     
-    const prepare = [userid,userpw,nickname,phonenumber]
+    const prepare = [userpw,nickname,phonenumber]
     try{
         const [result] = await pool.execute(sql,prepare)
             

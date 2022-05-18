@@ -22,7 +22,7 @@ const Update = ()=>{
 
     const onSubmit = async (event) =>{
         event.preventDefault()
-        const result = await axios.post('http://localhost:4001/api/user/register',body) 
+        const result = await axios.post('http://localhost:4001/api/user/update',body) 
         console.log(result);
         return(
             alert('계정의 수정이 완료')
