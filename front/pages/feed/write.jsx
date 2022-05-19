@@ -18,6 +18,10 @@ const Write = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
+            if(values.subject=='' || values.content ==''){
+                alert('빈칸은 있을 수 없다.')
+                return
+            }
             const result = await axios.post('http://localhost:4001/api/feed/write',body)
             if(result.data.errno === 0){
                 alert('작성 완료')

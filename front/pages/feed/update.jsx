@@ -2,52 +2,49 @@ import React,{useState,useEffect} from 'react'
 const axios = require('axios')
 import { useCookies } from 'react-cookie';
 const Update = ()=>{
-    const [nickname,setNickname] = useState('')
-    const [userpw,setUserpw] = useState('')
-    const [phonenumber,setPhonenumber] = useState('')
+    const [values,setValues] = useState({subject:'',content:''})
+    const idx = location.href.split('?')[1]
+    console.log('여기는 지금 넘어왔노',idx);
     
-    const onNickname = (event) =>{
-        setNickname(event.target.value)
+    const handleChange = (e) => {
+        
+        const {name,value} = e.target
+        setValues({
+            ...values,
+            [name]:value
+        })
     }
-    const onPasswordHandler = (event) =>{
-        setUserpw(event.target.value)
-    }
-    const onPhoneHandler = (event)=>{
-        setPhonenumber(event.target.value)
-    }
-
 
     const token = document.cookie
-    const body = {nickname,userpw,phonenumber,token}
+    const body = {idx,token,values}
 
-    const onSubmit = async (event) =>{
-        event.preventDefault()
-        if(nickname=='' || userpw =='' || phonenumber==''){
-            alert('빈칸은 있을 수 없다.')
-        }else{
-            const result = await axios.post('http://localhost:4001/api/user/update',body) 
-            console.log(result.data.errno)
-            if(result.data.errno === 0){
-                alert('계정의 수정이 완료')
-                location.href='/'
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try{
+            if(values.subject=='' || values.content ==''){
+                alert('빈칸은 있을 수 없다.')
+                return
             }
+            const result = await axios.post('http://localhost:4001/api/feed/update',body)
+            if(result.data.errno === 0){
+                alert('작성 완료')
+                location.href='/feed/list'
+            }else{
+                alert('작성 실패')
+            }
+        }catch(e){
+            console.log(e)
         }
         
+        
     }
-    const COOKIE_KEY = document.cookie
-    const [, , removeCookie] = useCookies([COOKIE_KEY]);
-    
     return(
         <>
          <div class="feedUpdate">
-            <form onSubmit={onSubmit}>
-                <div><input name="nickname" type="text" placeholder="닉네임" value={nickname} onChange={onNickname}/></div>
-                <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
-                <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div>
-                <div><button type="submit">계정 업데이트</button></div>
-            </form>
-            <form onSubmit={onDelete}>
-                <div ><button type="submit">계정 탈퇴</button></div>
+            <form onSubmit={handleSubmit}>
+                <div><input name="subject" type="text" placeholder="제목" value={values.subject} onChange={handleChange}/></div>
+                <div><input name="content" type="text" placeholder="내용" value={values.content} onChange={handleChange}/></div>
+                <div><button type="submit">피드 업데이트</button></div>
             </form>
         </div>
         </>
