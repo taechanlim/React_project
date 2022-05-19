@@ -6,7 +6,7 @@ const Index = () => {
         <>
             -------------메인페이지------------ <br />
             피드 넣어야함
-            <Link href="/feed/list"><List /></Link>
+            <Link href="/feed/list">피드 바로가기</Link>
         </>
     )
 }
