@@ -29,11 +29,21 @@ const Register = () => {
     const onSubmit = async (event) =>{
         event.preventDefault()
         try{
-        const result = await axios.post('http://localhost:4001/api/user/register',body) 
-        console.log(result);
-        location.href='/'
+        if(userid=='' || nickname =='' || userpw=='' || confirmPassword==''|| phonenumber==''){
+            alert('빈칸은 있을 수 없다.')
+        }else if(userpw !== confirmPassword){
+            alert('비밀번호 확인 부탁.')
+        }
+        else{
+            const result = await axios.post('http://localhost:4001/api/user/register',body)
+            console.log(result.data.errno)
+            if(result.data.errno === 0){
+                alert('계정이 생성되었다.')
+                location.href='/'
+            }
+        }
         } catch(error){
-            alert(error)
+            alert('응 아니되오')
         }
     }
     return(

@@ -1,7 +1,7 @@
 const axios = require('axios')
 // import { useEffect } from 'react'
 import React, { Fragment } from "react";
-// import Link from "next/link";
+import Link from "next/link";
 
 const List = (props) => {
     const list = props.list
@@ -10,6 +10,9 @@ const List = (props) => {
         const result = await axios.post('http://localhost:4001/api/feed/delete',body)
         alert('삭제되었습니다')
         location.href='/feed/list'
+    }
+    const updateBtn = (i) => {
+        console.log(i);
     }
     return(
         <div>
@@ -28,6 +31,7 @@ const List = (props) => {
                         <div>내용 :{info.content}</div>
                         <div>작성자 :{info.nickname}</div>
                         <button onClick={()=>deleteBtn(info.idx)}>삭제</button>
+                        <Link href={`/feed/update?${info.idx}`}><button onClick={()=>updateBtn(info.idx)}>수정</button></Link>
                     </div>
                     );
                     })}
