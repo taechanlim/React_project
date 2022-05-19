@@ -24,25 +24,16 @@ import { useEffect } from 'react'
 //     )
 // }
 const List = (props) => {
-
-    const a = props.list.result
-
+    
     return(
         <div>
             
                 
                 <tr>
-                    <td>{a[0].idx}</td>
-                    <td>{a[0].subject}</td>
-                    <td>{a[0].content}</td>
+                    <td>{(props.list.map(v=>v.idx))}</td>
+                    <td>{(props.list.map(v=>v.subject))}</td>
+                    <td>{(props.list.map(v=>v.content))}</td>
                 </tr>
-                <tr>
-                    <td>{a[1].idx}</td>
-                    <td>{a[1].subject}</td>
-                    <td>{a[1].content}</td>
-                </tr>
-                
-
                 
             
 
@@ -55,7 +46,7 @@ export async function getServerSideProps(){
     
     const result = await axios.get('http://localhost:4001/api/feed/list')
     
-    const list = result.data
+    const list = result.data.result
     
     return{
         props:{
