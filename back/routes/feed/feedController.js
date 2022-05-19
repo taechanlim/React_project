@@ -9,11 +9,11 @@ exports.list = async (req,res)=>{
         const [result] = await pool.execute(sql)
         console.log(result)
         const response = {
-            result:{
+            
                 result,
                 row:result.affectedRows,
-                id:result.insertId
-            },
+                id:result.insertId,
+            
             errno:0,
         }
     
@@ -34,33 +34,33 @@ exports.list = async (req,res)=>{
 }
 
 
-exports.view = async (req,res)=>{
+// exports.view = async (req,res)=>{
     
-    const idx = req.query
+//     const idx = req.query
     
     
-    const sql = `SELECT * FROM board WHERE idx=?`
+//     const sql = `SELECT * FROM board WHERE idx=?`
     
-    const prepare = [idx]
-    let response = {
-        errno:0
-    }
-    try{
-        const [result] = await pool.execute(sql,prepare)
+//     const prepare = [idx]
+//     let response = {
+//         errno:0
+//     }
+//     try{
+//         const [result] = await pool.execute(sql,prepare)
                          
                         
-        response = {
-            ...response,
-            result
-        }
+//         response = {
+//             ...response,
+//             result
+//         }
         
-    }catch(e){
-            {
-                console.log(e.message)
-                response={
-                    errno:1
-                }
-            }
-    }
-    res.json(response)
-}
+//     }catch(e){
+//             {
+//                 console.log(e.message)
+//                 response={
+//                     errno:1
+//                 }
+//             }
+//     }
+//     res.json(response)
+// }

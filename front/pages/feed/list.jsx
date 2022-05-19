@@ -1,51 +1,68 @@
-
 const axios = require('axios')
+import { useEffect } from 'react'
 
-const List = (props) => {
-    console.log(props.list);
+
+// const Feed = () => {
+//     const a = async () => {
+//         const result = await axios.post('http://localhost:4001/api/feed/list')
+        
+//         const list = result.data.result
+//         list.map(v=>{
+//             console.log(v.idx)
+//         })
+        
+//     }
+//     useEffect(()=>{
+//         a()
+//     },[])
     
+
+//     return(
+//         <div>
+//                  {v.idx}
+//         </div>
+//     )
+// }
+const List = (props) => {
+
+    const a = props.list.result
+
     return(
-        <>
-            <div className="main">
-                <div className="feed">
-                    <div className="feed_header">
-                        <ul>
-                            <li>프로필사진</li>
-                            <li>닉네임,유저네임</li>
-                            {/* <li >유저네임 : {props.list && props.list?.map((v)=>{return <p>{props.list}</p>})}</li> */}
-                        </ul>
-                    </div>
-                    <div className="feed_body">
-                        <div>
-                            {/* {props.list.map(v=>v.content)} */}
-                        </div>
-                        <div>
-                            <section>좋아요,댓글의 icon</section>
-                            <div className="comment">
-                                댓글 부분
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
+        <div>
+            
+                
+                <tr>
+                    <td>{a[0].idx}</td>
+                    <td>{a[0].subject}</td>
+                    <td>{a[0].content}</td>
+                </tr>
+                <tr>
+                    <td>{a[1].idx}</td>
+                    <td>{a[1].subject}</td>
+                    <td>{a[1].content}</td>
+                </tr>
+                
+
+                
+            
+
+        </div>
     )
 }
+
+
 export async function getServerSideProps(){
-    console.log ('hello server')
-    // await axios 로 데이터를 받아와서 아래 props로 넘겨주면 OK (글번호,제목,내용,작성자등 받아와서)
-    const result = await axios.post('http://localhost:4001/api/feed/list')
-    const list = result.data.result
-    // console.log(list);
+    
+    const result = await axios.get('http://localhost:4001/api/feed/list')
+    
+    const list = result.data
+    
     return{
         props:{
-            list
+            list:list
         }
     }
 }
 
-
-
-// insert into feed(subject,content,nickname) values('제목1','내용1','fdsfs');
 
 export default List
