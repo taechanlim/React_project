@@ -4,9 +4,8 @@ const feedController = require('./feedController.js')
 
 
 router.get('/list',feedController.list)
-router.post('/view',feedController.view)
-router.post('/update',feedController.update)
 router.post('/delete',feedController.delete)
+
 
 
 

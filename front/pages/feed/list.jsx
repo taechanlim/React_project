@@ -1,39 +1,38 @@
 const axios = require('axios')
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
+import React, { Fragment } from "react";
+// import Link from "next/link";
 
-
-// const Feed = () => {
-//     const a = async () => {
-//         const result = await axios.post('http://localhost:4001/api/feed/list')
-        
-//         const list = result.data.result
-//         list.map(v=>{
-//             console.log(v.idx)
-//         })
-        
-//     }
-//     useEffect(()=>{
-//         a()
-//     },[])
-    
-
-//     return(
-//         <div>
-//                  {v.idx}
-//         </div>
-//     )
-// }
 const List = (props) => {
-    
+    const list = props.list
+    const deleteBtn = async (i) => {
+        const body = {idx:i}
+        const result = await axios.post('http://localhost:4001/api/feed/delete',body)
+        alert('삭제되었습니다')
+        location.href='/feed/list'
+    }
     return(
         <div>
-            
-                
-                <tr>
-                    <td>{(props.list.map(v=>v.idx))}</td>
-                    <td>{(props.list.map(v=>v.subject))}</td>
-                    <td>{(props.list.map(v=>v.content))}</td>
-                </tr>
+                <Fragment>
+                <div>
+                    {list?.map((info) => {
+                    return (
+                    <div key={info.idx}>
+                        {/* <Link href={`/user/main/reservation/detail/${info.idx}`}>
+                        <input type="button" value={"button" + info.idx} alt="" />
+                        </Link> */}
+                        <div>글번호 : {info.idx}</div>
+                        <div />
+                        <div>제목 : {info.subject}</div>
+                        <div />
+                        <div>내용 :{info.content}</div>
+                        <div>작성자 :{info.nickname}</div>
+                        <button onClick={()=>deleteBtn(info.idx)}>삭제</button>
+                    </div>
+                    );
+                    })}
+                </div>
+	</Fragment>
                 
             
 
@@ -44,9 +43,9 @@ const List = (props) => {
 
 export async function getServerSideProps(){
     
-    const result = await axios.get('http://localhost:4001/api/feed/list')
+    const response = await axios.get('http://localhost:4001/api/feed/list')
     
-    const list = result.data.result
+    const list = response.data.result
     
     return{
         props:{
