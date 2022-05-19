@@ -4,10 +4,30 @@ import { MailOutlined, AppstoreOutlined, SettingOutlined ,PlayCircleOutlined} fr
 import Footer from './Footer'
 //import styles from 'layout.module.css'
 import {useState,useEffect} from 'react'
+import { useRouter } from 'next/router';
+
+
 
 
 const DefaultLayout = ({ children }) => {
     const [isCookie,setisCookie] = useState()
+    
+    const router = useRouter();
+    const feedURL = router.pathname.split('/')[1]
+    
+    const Auth = () => {
+        if(feedURL == 'feed'){
+            if(!document.cookie){
+                alert('로그인 후 이용하세요')
+                location.href='/'
+            }
+        }
+    }
+    Auth()
+    
+
+    
+    
 
     const cookiecheck = () => {
         if(document.cookie){
@@ -16,7 +36,8 @@ const DefaultLayout = ({ children }) => {
     }
     useEffect(()=>{
         cookiecheck()
-    },[isCookie]) //isLogin이 바뀔때마다 코드실행
+        
+    },[isCookie]) 
 
     return (
         <>      
