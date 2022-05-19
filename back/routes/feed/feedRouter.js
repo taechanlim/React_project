@@ -5,6 +5,7 @@ const feedController = require('./feedController.js')
 
 router.get('/list',feedController.list)
 // router.post('/view',feedController.view)
+router.post('/delete',feedController.delete)
 
 
 

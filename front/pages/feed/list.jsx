@@ -5,7 +5,12 @@ import React, { Fragment } from "react";
 
 const List = (props) => {
     const list = props.list
-    
+    const deleteBtn = async (i) => {
+        const body = {idx:i}
+        const result = await axios.post('http://localhost:4001/api/feed/delete',body)
+        alert('삭제되었습니다')
+        location.href='/feed/list'
+    }
     return(
         <div>
                 <Fragment>
@@ -22,6 +27,7 @@ const List = (props) => {
                         <div />
                         <div>내용 :{info.content}</div>
                         <div>작성자 :{info.nickname}</div>
+                        <button onClick={()=>deleteBtn(info.idx)}>삭제</button>
                     </div>
                     );
                     })}

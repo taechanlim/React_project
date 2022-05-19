@@ -7,7 +7,7 @@ exports.list = async (req,res)=>{
     
     try{
         const [result] = await pool.execute(sql)
-        console.log(result)
+        // console.log(result)
         const response = {
             
                 result,
@@ -34,33 +34,36 @@ exports.list = async (req,res)=>{
 }
 
 
-// exports.view = async (req,res)=>{
+exports.delete = async (req,res)=>{
+    // console.log(req.body)
+    const {idx} = req.body
     
-//     const idx = req.query
+    const sql = `DELETE from feed WHERE idx=${idx}`
     
+    try{
+        const [result] = await pool.execute(sql)
+        console.log(result)
+        const response = {
+            
+                result,
+                row:result.affectedRows,
+                id:result.insertId,
+            
+            errno:0,
+        }
     
-//     const sql = `SELECT * FROM board WHERE idx=?`
-    
-//     const prepare = [idx]
-//     let response = {
-//         errno:0
-//     }
-//     try{
-//         const [result] = await pool.execute(sql,prepare)
-                         
-                        
-//         response = {
-//             ...response,
-//             result
-//         }
+        res.json(response)
         
-//     }catch(e){
-//             {
-//                 console.log(e.message)
-//                 response={
-//                     errno:1
-//                 }
-//             }
-//     }
-//     res.json(response)
-// }
+    
+        }catch(e){
+        
+        const response = {
+            result:{
+                row:0,
+                id:0
+            },
+            errno:e.errno,
+        }
+        res.json(response)
+        }
+}
