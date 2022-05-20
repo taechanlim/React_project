@@ -3,12 +3,14 @@ import React, { Fragment } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+
 const commentList = (props) => {
     const list = props.list
     const router = useRouter()
     return(
         <div>
             <Fragment>
+
                 <div>
                     {list?.map((info) => {
                     return (
