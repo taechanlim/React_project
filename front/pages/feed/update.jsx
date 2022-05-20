@@ -4,7 +4,7 @@ import { useCookies } from 'react-cookie';
 const Update = ()=>{
     const [values,setValues] = useState({subject:'',content:''})
     const idx = location.href.split('?')[1]
-    console.log('여기는 지금 넘어왔노',idx);
+    console.log('여기는 지금 넘어왔',idx);
     
     const handleChange = (e) => {
         
