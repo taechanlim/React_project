@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import Link from "next/link";
 
 
-const List = (props) => {
+const Aaaa = (props) => {
     const list = props.list
     const deleteBtn = async (i) => {
         const body = {idx:i}
@@ -44,10 +44,10 @@ const List = (props) => {
 }
 
 
-export async function getServerSideProps(){
+export async function getInitialProps(){
     
     const response = await axios.get('http://localhost:4001/api/feed/list')
-    
+    console.log(response);
     const list = response.data.result
     
     return{
@@ -58,4 +58,4 @@ export async function getServerSideProps(){
 }
 
 
-export default List
+export default Aaaa
