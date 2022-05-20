@@ -28,7 +28,7 @@ const Update = ()=>{
             const result = await axios.post('http://localhost:4001/api/feed/update',body)
             if(result.data.errno === 0){
                 alert('작성 완료')
-                location.href='/feed/list'
+                location.href='/'
             }else{
                 alert('작성 실패')
             }
