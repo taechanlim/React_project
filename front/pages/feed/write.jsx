@@ -1,5 +1,6 @@
 import {useState,useEffect} from 'react'
 const axios = require('axios')
+import Img from './imgUpload'
 
 const Write = () => {
     const [values,setValues] = useState({subject:'',content:''})
@@ -44,7 +45,9 @@ const Write = () => {
                 <input type='text' name="content" placeholder="내용" onChange={handleChange}></input> <br />
                 <input type='submit' value='작성'></input>
             </form>
+            <Img/>
         </>
+        
     )
 }
 

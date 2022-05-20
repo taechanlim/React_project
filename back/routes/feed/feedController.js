@@ -42,9 +42,7 @@ exports.delete = async (req,res)=>{
     
     try{
         const [result] = await pool.execute(sql)
-        console.log(result)
         const response = {
-            
                 result,
                 row:result.affectedRows,
                 id:result.insertId,

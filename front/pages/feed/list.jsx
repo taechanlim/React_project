@@ -1,7 +1,7 @@
 const axios = require('axios')
-// import { useEffect } from 'react'
 import React, { Fragment } from "react";
 import Link from "next/link";
+
 
 const List = (props) => {
     const list = props.list
@@ -14,9 +14,14 @@ const List = (props) => {
     const updateBtn = (i) => {
         console.log(i);
     }
+    // const openCommentBtn = async (i) => {
+    //     const body = {idx:i}
+    //     const result = await axios.get('http://localhost:4001/api/comment/list',body)
+    // }
     return(
         <div>
-                <Fragment>
+            <Fragment>
+                
                 <div>
                     {list?.map((info) => {
                     return (
@@ -32,6 +37,7 @@ const List = (props) => {
                         <div>작성자 :{info.nickname}</div>
                         <button onClick={()=>deleteBtn(info.idx)}>삭제</button>
                         <Link href={`/feed/update?${info.idx}`}><button onClick={()=>updateBtn(info.idx)}>수정</button></Link>
+                        <Link href={`/comment/${info.idx}`}><button>댓글보기</button></Link>
                     </div>
                     );
                     })}

@@ -38,3 +38,7 @@ CREATE TABLE comment (
     FOREIGN KEY (nickname) REFERENCES user (nickname)
 ); 
 
+-- CREATE TABLE Img(
+--     img_idx INT PRIMARY KEY AUTO_INCREMENT,
+--     img 
+-- )
