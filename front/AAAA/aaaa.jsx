@@ -1,26 +1,21 @@
-import Link from 'next/link'
-import List from './feed/list'
 const axios = require('axios')
 import React, { Fragment } from "react";
+import Link from "next/link";
 
 
-const Index = (props) => {
+const Aaaa = (props) => {
     const list = props.list
     const deleteBtn = async (i) => {
         const body = {idx:i}
-        
         const result = await axios.post('http://localhost:4001/api/feed/delete',body)
-        console.log(result);
         alert('삭제되었습니다')
-        location.href='/'
+        location.href='/feed/list'
     }
     const updateBtn = (i) => {
         console.log(i);
     }
     return(
-        <>
-            -------------메인페이지------------ <br />
-            <div>
+        <div>
             <Fragment>
                 
                 <div>
@@ -39,22 +34,20 @@ const Index = (props) => {
                         <button onClick={()=>deleteBtn(info.idx)}>삭제</button>
                         <Link href={`/feed/update?${info.idx}`}><button onClick={()=>updateBtn(info.idx)}>수정</button></Link>
                         <Link href={`/comment/${info.idx}`}><button>댓글보기</button></Link>
-                        <p>-------------------------------------</p>
                     </div>
                     );
                     })}
                 </div>
 	        </Fragment>
         </div>
-        </>
-        
     )
-
 }
-export async function getServerSideProps(){
+
+
+export async function getInitialProps(){
     
     const response = await axios.get('http://localhost:4001/api/feed/list')
-    
+    console.log(response);
     const list = response.data.result
     
     return{
@@ -65,9 +58,4 @@ export async function getServerSideProps(){
 }
 
 
-
-
-
-
-
-export default Index
+export default Aaaa

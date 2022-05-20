@@ -35,13 +35,17 @@ exports.list = async (req,res)=>{
 
 
 exports.delete = async (req,res)=>{
-    // console.log(req.body)
+    
     const {idx} = req.body
     
     const sql = `DELETE from feed WHERE idx=${idx}`
+    const sql2 = `set foreign_key_checks=0`
+    const sql3 = `set foreign_key_checks=1`
     
     try{
-        const [result] = await pool.execute(sql)
+        const [result] = await pool.execute(sql2)
+                         await pool.execute(sql)
+                         await pool.execute(sql3)
         const response = {
                 result,
                 row:result.affectedRows,

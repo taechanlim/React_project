@@ -14,10 +14,6 @@ const List = (props) => {
     const updateBtn = (i) => {
         console.log(i);
     }
-    // const openCommentBtn = async (i) => {
-    //     const body = {idx:i}
-    //     const result = await axios.get('http://localhost:4001/api/comment/list',body)
-    // }
     return(
         <div>
             <Fragment>
@@ -42,10 +38,7 @@ const List = (props) => {
                     );
                     })}
                 </div>
-	</Fragment>
-                
-            
-
+	        </Fragment>
         </div>
     )
 }
