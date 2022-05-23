@@ -19,7 +19,6 @@ const commentList = (props) => {
     const body = {values,token,router}
 
     const deleteBtn = async (i) => {
-        console.log(i);
         const body = {comment_idx:i}
         const result = await axios.post('http://localhost:4001/api/comment/delete',body)
         alert('삭제되었습니다')
