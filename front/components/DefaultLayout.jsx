@@ -41,7 +41,7 @@ const DefaultLayout = ({ children }) => {
 
     return (
         <>      
-        <div style={{width:'100%'}}><img src="/static/logo.png" /></div>
+        <div style={{width:'100%' }}><img src="/static/logo.png" /></div>
             
             
             <Col>
