@@ -1,6 +1,8 @@
 import {useState,useEffect} from 'react'
 const axios = require('axios')
 import Img from './imgUpload'
+import { Input, Space } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 const Write = () => {
     const [values,setValues] = useState({subject:'',content:''})
@@ -39,13 +41,23 @@ const Write = () => {
 
     return(
         <>
+        <div style={{width:'27%',height:'50%',marginLeft:'35%',border:'1px solid lightgray'}}>
             <h1>피드 쓰기</h1>
             <form onSubmit={handleSubmit}>
-                <input type='text' name="subject" placeholder="제목" onChange={handleChange}></input> <br />
-                <input type='text' name="content" placeholder="내용" onChange={handleChange}></input> <br />
-                <input type='submit' value='작성'></input>
+                <Space direction="vertical">
+                        <Input
+                        name="subject" onChange={handleChange}
+                        placeholder="input subject"
+                        />
+                        <Input
+                        name="content" onChange={handleChange}
+                        placeholder="input content"
+                        />
+                    </Space>
+                <input type='submit' value='작성' style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'32px',marginLeft:'120px'}}></input>
             </form>
             <Img/>
+        </div>
         </>
         
     )

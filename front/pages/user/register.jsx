@@ -1,5 +1,7 @@
 import React, { useState } from "react"
 const axios = require('axios')
+import { Input, Space } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 const Register = () => {
     const [userid,setUserid] = useState('')
@@ -47,14 +49,33 @@ const Register = () => {
         }
     }
     return(
-        <div class="loginRegister">
+        <div class="loginRegister" style={{border:'1px solid lightgray',width:'9.5%',marginLeft:'45%'}}>
             <form onSubmit={onSubmit}>
-                <div><input name="userid" type="text" placeholder="이름" value={userid} onChange={onNameHandler}/></div>
-                <div><input name="nickname" type="text" placeholder="닉네임" value={nickname} onChange={onNickname}/></div>
-                <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
-                <div><input name="confirmPassword" type="password" placeholder="비밀번호 확인" value={confirmPassword} onChange={onConfirmPasswordHandler}/></div>
-                <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div>
-                <div><button type="submit">계정 생성</button></div>
+                    <Space direction="vertical">
+                        <Input
+                        name="userid" onChange={onNameHandler}
+                        placeholder="input userid"
+                        />
+                        <Input
+                        name="nickname" onChange={onNickname}
+                        placeholder="input nickname"
+                        />
+                        <Input.Password
+                        name="userpw" onChange={onPasswordHandler}onPhoneHandler
+                        placeholder="input password"
+                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                        />
+                        <Input.Password
+                        name="userpw" onChange={onConfirmPasswordHandler}
+                        placeholder="input password"
+                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                        />
+                        <Input
+                        name="phonenumber" onChange={onPhoneHandler}
+                        placeholder="input phone number"
+                        />
+                    </Space>
+                <div><button type="submit"style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'182px',height:'80px',marginTop:'40px'}} >계정 생성</button></div>
             </form>
         </div>
     )
