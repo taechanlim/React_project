@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Menu, Row, Col } from 'antd'
-import { InfoCircleOutlined, TeamOutlined, ShopOutlined ,InstagramOutlined,DollarCircleOutlined,GithubOutlined,PlusOutlined} from '@ant-design/icons'
+import { InfoCircleOutlined, UsergroupAddOutlined, ShopOutlined ,InstagramOutlined,DollarCircleOutlined,GithubOutlined,PlusOutlined,LoadingOutlined} from '@ant-design/icons'
 import Footer from './Footer'
 //import styles from 'layout.module.css'
 import {useState,useEffect} from 'react'
@@ -41,23 +41,22 @@ const DefaultLayout = ({ children }) => {
 
     return (
         <>      
-        <div style={{width:'100%'}}><img src="/static/logo.png" /></div>
-            
-            
+
             <Col>
-                <Menu theme='#FFFFFF' mode="horizontal" style={{ display : 'flex', justifyContent:"center", border:'1px solid lightgray'}}>
+                <Menu theme='#FFFFFF' mode="horizontal" style={{ display : 'flex', justifyContent:"center", border:'1px solid lightgray',position:'fixed',zIndex:'10',width:'100%',height:'5%'}}>
 
                     <Row>
-                        <Menu.Item icon ={<InstagramOutlined />}><Link href="/">홈으로</Link></Menu.Item>
+                        <Menu.Item icon ={<InstagramOutlined />}><Link href="/">Home</Link></Menu.Item>
                         {isCookie ? <Menu.Item icon ={<InfoCircleOutlined />}><Link href="/user/login">로그아웃/프로필수정</Link></Menu.Item>
                                   : <Menu.Item icon ={<InfoCircleOutlined/>}><Link href="/user/login">로그인</Link></Menu.Item>
                         }
                         
-                        <Menu.Item icon ={<TeamOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
+                        <Menu.Item icon ={<UsergroupAddOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
                         <Menu.Item icon ={<ShopOutlined />}><Link href="/user/minihomepage">미니홈피</Link></Menu.Item>
                         <Menu.Item icon={<PlusOutlined />}><Link href="/feed/write">피드작성</Link></Menu.Item>
                         <Menu.Item icon={<DollarCircleOutlined />}><Link href="/nftmarket/wallet">NFT MARKET</Link></Menu.Item>
                         <Menu.Item icon={<GithubOutlined />}><Link href="https://github.com/taechanlim/React_project">Github</Link></Menu.Item>
+                        <Menu.Item icon={<LoadingOutlined />}></Menu.Item>
                     </Row>
 
                 </Menu>
