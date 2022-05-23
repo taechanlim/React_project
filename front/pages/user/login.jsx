@@ -3,7 +3,8 @@ const axios = require('axios')
 import { useCookies } from 'react-cookie';
 import Update from './update';
 import Link from 'next/link';
-import { Card ,Popover, Button} from 'antd';
+import { Input, Space } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 
 const Login = () => {
@@ -67,23 +68,35 @@ const Login = () => {
 
     return(
         <>
-        <div style={{width:'30%',height:'50%',border:'1px solid lightgray',marginLeft:'34%',marginRight:'34%'}}>
+        <div style={{width:'15%',height:'50%',border:'1px solid lightgray',marginLeft:'42%',marginRight:'42%'}}>
             <form onSubmit={handleSubmit} >
                 <ul style={{listStyle:'none'}}>
-                    
                     {isLogin 
-                    ? <> <li><button onClick={logout}>로그아웃</button></li> 
-                    <Link href='/user/update'>프로필 수정/탈퇴</Link>
+                    ? <> <li><button  onClick={logout} style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px'}}>로그아웃</button></li> 
+                    
+                    <Link href='/user/update' ><div style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',paddingLeft:'18%',paddingTop:'10%'}}>프로필 수정/탈퇴 </div></Link>
+                   
                     </>
                     :  <>
-                    <li>
+                    <Space direction="vertical">
+                        <Input
+                        name="userid" onChange={handleChange}
+                        placeholder="input userid"
+                        />
+                        <Input.Password
+                        name="userpw" onChange={handleChange}
+                        placeholder="input password"
+                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                        />
+                    </Space>
+                    {/* <li>
                         <label>아이디</label>
                         <input type="text" name="userid" onChange={handleChange} />
                     </li>
                     <li>
                         <label>패스워드</label>
                         <input type="password" name="userpw" onChange={handleChange} />
-                    </li>
+                    </li> */}
                     <li><input type="submit" value="로그인" disabled={submit} /></li> 
                     </>}
                     
