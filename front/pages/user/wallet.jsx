@@ -84,7 +84,7 @@ function Wallet() {
 
 
   return (
-    <div style={{marginLeft:'36%'}}>
+    <div style={{marginLeft:'36%',marginTop:'55px'}}>
         <button
           style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'500px',height:'80px',marginTop:'40px'}}
           onClick={()=>{

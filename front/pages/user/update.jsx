@@ -55,7 +55,7 @@ const Update = ()=>{
     }
     return(
         <>
-         <div class="loginUpdate" style={{width:'10.5%',height:'50%',border:'1px solid lightgray',marginLeft:'44%'}}>
+         <div class="loginUpdate" style={{width:'10.5%',height:'50%',border:'1px solid lightgray',marginLeft:'44%',marginTop:'55px'}}>
             <form onSubmit={onSubmit}>
                 
                 <Space direction="vertical">

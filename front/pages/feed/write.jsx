@@ -41,7 +41,7 @@ const Write = () => {
 
     return(
         <>
-        <div style={{width:'27%',height:'50%',marginLeft:'35%',border:'1px solid lightgray'}}>
+        <div style={{width:'27%',height:'50%',marginLeft:'35%',border:'1px solid lightgray',marginTop:'55px'}}>
             <h1>피드 쓰기</h1>
             <form onSubmit={handleSubmit}>
                 <Space direction="vertical">
