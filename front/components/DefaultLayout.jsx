@@ -43,7 +43,7 @@ const DefaultLayout = ({ children }) => {
         <>      
 
             <Col>
-                <Menu theme='#FFFFFF' mode="horizontal" style={{ display : 'flex', justifyContent:"center", border:'1px solid lightgray',position:'fixed',zIndex:'10',width:'100%',height:'5%'}}>
+                <Menu theme='#FFFFFF' mode="horizontal" style={{ display : 'flex', justifyContent:"center", border:'1px solid lightgray',position:'fixed',zIndex:'10',width:'100%'}}>
 
                     <Row>
                         <Menu.Item icon ={<InstagramOutlined />}><Link href="/">Home</Link></Menu.Item>
@@ -56,7 +56,7 @@ const DefaultLayout = ({ children }) => {
                         <Menu.Item icon={<PlusOutlined />}><Link href="/feed/write">피드작성</Link></Menu.Item>
                         <Menu.Item icon={<DollarCircleOutlined />}><Link href="/user/wallet">Meta mask연결</Link></Menu.Item>
                         <Menu.Item icon={<GithubOutlined />}><Link href="https://github.com/taechanlim/React_project">Github</Link></Menu.Item>
-                        <Menu.Item icon={<LoadingOutlined />}></Menu.Item>
+                        <Menu.Item icon={<LoadingOutlined />}>페이지 동작중!</Menu.Item>
                     </Row>
 
                 </Menu>
