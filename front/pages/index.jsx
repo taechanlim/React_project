@@ -22,7 +22,7 @@ const Index = (props) => {
                 // console.log(matchnickname[i])
                 if(matchnickname[i] == nickname){setisCookie(true)}
             }
-
+            
         }
     }
     useEffect(()=>{

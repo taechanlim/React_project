@@ -7,7 +7,7 @@ router.post('/register',userController.register)
 router.post('/login',userController.login)
 router.post('/update',userController.update)
 router.post('/delete',userController.delete)
-
+router.post('/wallet',userController.wallet)
 
 
 

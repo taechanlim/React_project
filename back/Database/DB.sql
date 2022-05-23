@@ -7,6 +7,7 @@ CREATE TABLE user(
     profile_img varchar(30) null,
     nickname varchar(15) not null,
     phonenumber int(15) not null,
+    wallet varchar(50) null,
     active int(1) DEFAULT 1 not null,
     PRIMARY KEY (nickname,userid)
 );
