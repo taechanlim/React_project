@@ -45,13 +45,7 @@ function ImageUploadExample() {
                     />
   
                     <button
-                      style={{
-                        backgroundColor: "gray",
-                        color: "white",
-                        width: "55px",
-                        height: "40px",
-                        cursor: "pointer",
-                      }}
+                      style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'32px'}}
                       onClick={() => deleteFileImage()}
                     >
                       삭제

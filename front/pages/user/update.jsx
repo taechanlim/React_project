@@ -1,6 +1,9 @@
 import React,{useState,useEffect} from 'react'
 const axios = require('axios')
 import { useCookies } from 'react-cookie';
+import { Input, Space } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+
 const Update = ()=>{
     const [nickname,setNickname] = useState('')
     const [userpw,setUserpw] = useState('')
@@ -52,15 +55,31 @@ const Update = ()=>{
     }
     return(
         <>
-         <div class="loginUpdate">
+         <div class="loginUpdate" style={{width:'10.5%',height:'50%',border:'1px solid lightgray',marginLeft:'44%'}}>
             <form onSubmit={onSubmit}>
-                <div><input name="nickname" type="text" placeholder="닉네임" value={nickname} onChange={onNickname}/></div>
+                
+                <Space direction="vertical">
+                        <Input
+                        name="nickname" onChange={onNickname}
+                        placeholder="input userid"
+                        />
+                        <Input.Password
+                        name="userpw" onChange={onPasswordHandler}
+                        placeholder="input password"
+                        iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                        />
+                        <Input
+                        name="phonenumber" onChange={onPhoneHandler}
+                        placeholder="input phonenumber"
+                        />
+                    </Space>
+                {/* <div><input name="nickname" type="text" placeholder="닉네임" value={nickname} onChange={onNickname}/></div>
                 <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
-                <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div>
-                <div><button type="submit">계정 업데이트</button></div>
+                <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div> */}
+                <div><button type="submit" style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',marginTop:'30px'}}>계정 업데이트</button></div>
             </form>
             <form onSubmit={onDelete}>
-                <div ><button type="submit">계정 탈퇴</button></div>
+                <div ><button type="submit" style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',marginTop:'30px'}}>계정 탈퇴</button></div>
             </form>
         </div>
         </>

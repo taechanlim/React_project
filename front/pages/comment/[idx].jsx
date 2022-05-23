@@ -2,6 +2,8 @@ const axios = require('axios')
 import React, { Fragment ,useState} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Input, Space } from 'antd';
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 
 const commentList = (props) => {
@@ -51,26 +53,32 @@ const commentList = (props) => {
     return(
         <div>
             <>
+                <div style={{width:'25%',height:'50%',border:'1px solid lightgray',marginLeft:'38%'}}>
                 <h1>댓글 쓰기</h1>
                 <form onSubmit={handleSubmit}>
-                    <input type='text' name="comment" placeholder="내용" onChange={handleChange}></input> <br />
-                    <input type='submit' value='작성'></input>
+                    <Space direction="vertical">
+                        <Input
+                        name="comment" onChange={handleChange}
+                        placeholder="input comment"
+                        />
+                    </Space>
+                    <input type='submit' value='작성' style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'32px',marginLeft:'50px'}}></input>
                 </form>
-                <p>-------------------------------------</p>
+                </div>
             </>
             <Fragment>
 
-                <div>
+                <div >
                     {list?.map((info) => {
                     return (
-                    <div key={info.comment_idx}>
+                    <div key={info.comment_idx} style={{width:'15%',height:'50%',border:'1px solid lightgray',marginLeft:'43%'}}>
 
-                        <div>내용 :{info.comment}</div>
-                        <div>작성자 :{info.nickname}</div>
-                        <div>작성일자 :{info.date}</div>
-                        <button onClick={()=>deleteBtn(info.comment_idx)}>삭제</button>
-                        <Link href={`/comment/commentUpdate?feed=${info.idx}=comment=${info.comment_idx}`}><button onClick={()=>updateBtn(info.comment_idx)}>수정</button></Link>
-                        <p>-------------------------------------</p>
+                        
+                        <div style={{fontWeight:'bold'}}>{info.nickname}</div>
+                        <div>{info.comment}</div>
+                        <div>{info.date}</div>
+                        <button onClick={()=>deleteBtn(info.comment_idx) } style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>삭제</button>
+                        <Link href={`/comment/commentUpdate?feed=${info.idx}=comment=${info.comment_idx}`}><button onClick={()=>updateBtn(info.comment_idx)}style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>수정</button></Link>
                         {/* 좋아요 구현하기 */}
 
                         {/* <button onClick={()=>deleteBtn(info.idx)}>삭제</button>
