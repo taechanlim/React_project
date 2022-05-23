@@ -56,6 +56,7 @@ const DefaultLayout = ({ children }) => {
                         <Menu.Item icon ={<AppstoreOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
                         <Menu.Item icon ={<SettingOutlined />}><Link href="/user/minihomepage">미니홈피</Link></Menu.Item>
                         <Menu.Item><Link href="/feed/write">New 피드작성</Link></Menu.Item>
+                        <Menu.Item><Link href="/market/main">NFT 마켓</Link></Menu.Item>
                     </Row>
 
                 </Menu>
