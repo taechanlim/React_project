@@ -7,7 +7,7 @@ const Footer = () => {
                     React_pj
                 </h2>
                 <p style={{fontWeight:'bold'}}>Team</p>
-                <p>임태찬 지정환 이현진 김도움</p>
+                <p>임태찬 김도움 이현진 지정환</p>
             
             </div>
         </footer>
