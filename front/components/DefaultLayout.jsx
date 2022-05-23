@@ -16,7 +16,7 @@ const DefaultLayout = ({ children }) => {
     const feedURL = router.pathname.split('/')[1]
     
     const Auth = () => {
-        if(feedURL == 'feed'){
+        if(feedURL == 'feed' || feedURL == 'nftmarket'){
             if(!document.cookie){
                 alert('로그인 후 이용하세요')
                 location.href='/'
@@ -56,7 +56,7 @@ const DefaultLayout = ({ children }) => {
                         <Menu.Item icon ={<TeamOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
                         <Menu.Item icon ={<ShopOutlined />}><Link href="/user/minihomepage">미니홈피</Link></Menu.Item>
                         <Menu.Item icon={<PlusOutlined />}><Link href="/feed/write">피드작성</Link></Menu.Item>
-                        <Menu.Item icon={<DollarCircleOutlined />}><Link href="/user/wallet">Meta mask연결</Link></Menu.Item>
+                        <Menu.Item icon={<DollarCircleOutlined />}><Link href="/nftmarket/wallet">NFT MARKET</Link></Menu.Item>
                         <Menu.Item icon={<GithubOutlined />}><Link href="https://github.com/taechanlim/React_project">Github</Link></Menu.Item>
                     </Row>
 
