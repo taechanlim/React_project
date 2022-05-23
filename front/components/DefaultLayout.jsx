@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Menu, Row, Col } from 'antd'
-import { MailOutlined, AppstoreOutlined, SettingOutlined ,PlayCircleOutlined} from '@ant-design/icons'
+import { InfoCircleOutlined, TeamOutlined, ShopOutlined ,InstagramOutlined,DollarCircleOutlined,GithubOutlined,PlusOutlined} from '@ant-design/icons'
 import Footer from './Footer'
 //import styles from 'layout.module.css'
 import {useState,useEffect} from 'react'
@@ -48,14 +48,16 @@ const DefaultLayout = ({ children }) => {
                 <Menu theme='#FFFFFF' mode="horizontal" style={{ display : 'flex', justifyContent:"center", border:'1px solid lightgray'}}>
 
                     <Row>
-                        <Menu.Item icon ={<PlayCircleOutlined />}><Link href="/">홈으로</Link></Menu.Item>
-                        {isCookie ? <Menu.Item icon ={<MailOutlined />}><Link href="/user/login">로그아웃/프로필수정</Link></Menu.Item>
-                                  : <Menu.Item icon ={<MailOutlined />}><Link href="/user/login">로그인</Link></Menu.Item>
+                        <Menu.Item icon ={<InstagramOutlined />}><Link href="/">홈으로</Link></Menu.Item>
+                        {isCookie ? <Menu.Item icon ={<InfoCircleOutlined />}><Link href="/user/login">로그아웃/프로필수정</Link></Menu.Item>
+                                  : <Menu.Item icon ={<InfoCircleOutlined/>}><Link href="/user/login">로그인</Link></Menu.Item>
                         }
                         
-                        <Menu.Item icon ={<AppstoreOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
-                        <Menu.Item icon ={<SettingOutlined />}><Link href="/user/minihomepage">미니홈피</Link></Menu.Item>
-                        <Menu.Item><Link href="/feed/write">New 피드작성</Link></Menu.Item>
+                        <Menu.Item icon ={<TeamOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
+                        <Menu.Item icon ={<ShopOutlined />}><Link href="/user/minihomepage">미니홈피</Link></Menu.Item>
+                        <Menu.Item icon={<PlusOutlined />}><Link href="/feed/write">피드작성</Link></Menu.Item>
+                        <Menu.Item icon={<DollarCircleOutlined />}><Link href="/user/wallet">Meta mask연결</Link></Menu.Item>
+                        <Menu.Item icon={<GithubOutlined />}><Link href="https://github.com/taechanlim/React_project">Github</Link></Menu.Item>
                     </Row>
 
                 </Menu>

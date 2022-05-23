@@ -84,8 +84,9 @@ function Wallet() {
 
 
   return (
-    <div>
+    <div style={{marginLeft:'36%'}}>
         <button
+          style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'500px',height:'80px',marginTop:'40px'}}
           onClick={()=>{
             connectWallet();
             setPressStart(true);
