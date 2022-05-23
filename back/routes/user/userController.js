@@ -155,3 +155,40 @@ exports.delete = async (req,res)=>{
         res.json(response)
         }
 }
+
+
+exports.wallet = async (req,res)=>{
+    const {wallet,token} = req.body
+    const [,payload,] = token.split('.')
+    const decodingPayload = Buffer.from(payload,'base64').toString()
+    const nickname = JSON.parse(decodingPayload).nickname
+    const sql = `UPDATE user SET wallet = '${wallet}' WHERE nickname = '${nickname}'`
+    
+    
+    try{
+        const [result] = await pool.execute(sql)
+            
+        const response = {
+            result:{
+                row:result.affectedRows,
+                id:result.insertId
+            },
+            errno:0,
+        }
+    
+        res.json(response)
+        
+    
+        }catch(e){
+        console.log(e.message)
+        console.log(e)
+        const response = {
+            result:{
+                row:0,
+                id:0
+            },
+            errno:e.errno,
+        }
+        res.json(response)
+        }
+}
