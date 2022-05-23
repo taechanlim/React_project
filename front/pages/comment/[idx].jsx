@@ -46,7 +46,7 @@ const commentList = (props) => {
     return(
         <div>
             <>
-            <div  style={{background:'#FAFAFA',marginTop:'-30px'}}>
+            <div  style={{background:'#FAFAFA'}}>
             <Fragment>
                 
                 <div>
