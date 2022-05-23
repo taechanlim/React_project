@@ -46,7 +46,7 @@ const Index = (props) => {
 
     return(
         <>
-            <div  style={{background:'#FAFAFA'}}>
+            <div  style={{background:'#FAFAFA' }}>
             <Fragment>
                 
                 <div>

@@ -49,7 +49,7 @@ const Register = () => {
         }
     }
     return(
-        <div class="loginRegister" style={{border:'1px solid lightgray',width:'9.5%',marginLeft:'45%'}}>
+        <div class="loginRegister" style={{border:'1px solid lightgray',width:'9.5%',marginLeft:'45%',marginTop:'55px'}}>
             <form onSubmit={onSubmit}>
                     <Space direction="vertical">
                         <Input
