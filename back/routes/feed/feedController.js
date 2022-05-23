@@ -112,7 +112,7 @@ exports.write = async (req,res)=>{
 exports.update = async (req,res)=>{
     const {token,idx,values} = req.body
     const subject = values.subject
-    const content = values.content``
+    const content = values.content
     // const [,payload,] = token.split('.')
     // const decodingPayload = Buffer.from(payload,'base64').toString()
     // const userid = JSON.parse(decodingPayload).userid
