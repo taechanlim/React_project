@@ -2,8 +2,8 @@ import Link from 'next/link'
 import List from './feed/list'
 const axios = require('axios')
 import React, { Fragment,useState,useEffect } from "react";
-
-
+import { Card ,Popover, Button} from 'antd';
+const { Meta } = Card;
 
 const Index = (props) => {
     const list = props.list
@@ -41,41 +41,61 @@ const Index = (props) => {
     const updateBtn = (i) => {
         console.log(i);
     }
-
+    
     
 
     return(
         <>
-            -------------메인페이지------------ <br />
-            <div>
+            <div  style={{background:'#FAFAFA',marginTop:'-30px'}}>
             <Fragment>
                 
                 <div>
                     {list?.map((info) => {
                     return (
-                    <div key={info.idx}>
+                        <>
+                        
+                    <div key={info.idx} style={{marginLeft:'34%',marginRight:'34%'}}>
                         {/* <Link href={`/user/main/reservation/detail/${info.idx}`}>
                         <input type="button" value={"button" + info.idx} alt="" />
                         </Link> */}
-                        <div>글번호 : {info.idx}</div>
+                        <Card
+                        hoverable
+                        style={{
+                          width: 600,
+                          marginTop:30,
+                          border:'1px solid lightgray',
+                        }}
+                        
+                      >
                         <div />
-                        <div>제목 : {info.subject}</div>
                         <div />
-                        <div>내용 :{info.content}</div>
-                        <div>작성자 :{info.nickname}</div>
-                        {isCookie ? <button onClick={()=>deleteBtn(info.idx)}>삭제</button>
+                        <div style={{fontWeight:'bold'}}>{info.nickname}</div>
+                        <div >{info.content}</div>
+                        
+                        
+                        {isCookie ? <button onClick={()=>deleteBtn(info.idx)} style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>삭제</button>
                                   : <div />        
                         }
-                        {isCookie ? <Link href={`/feed/update?${info.idx}`}><button onClick={()=>updateBtn(info.idx)}>수정</button></Link>
+                        {isCookie ? <Link href={`/feed/update?${info.idx}`}><button onClick={()=>updateBtn(info.idx)} style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px'}}>수정</button></Link>
                                   : <div />
                         }
-                        <Link href={`/comment/${info.idx}`}><button>댓글보기</button></Link>
-                        <p>-------------------------------------</p>
+                        <Link href={`/comment/${info.idx}`}><button style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px'}}>댓글보기</button></Link>
+                        <Card hoverable
+                        style={{
+                          width: 550,
+                          marginTop:50,
+                          minWidth:550,
+                          minHeight:685,
+                          maxWidth:550,
+                          maxHeight:685
+                        }} cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}/>
+                        </Card>
                     </div>
+                    </>
                     );
                     })}
                 </div>
-	        </Fragment>
+	        </Fragment> 
         </div>
         </>
         

@@ -41,10 +41,11 @@ const DefaultLayout = ({ children }) => {
 
     return (
         <>      
-            <img src="/static/logo.png" />
+        <div style={{width:'100%'}}><img src="/static/logo.png" /></div>
+            
             
             <Col>
-                <Menu theme='dark' mode="horizontal" style={{ display : 'flex', justifyContent:"center"}}>
+                <Menu theme='#FFFFFF' mode="horizontal" style={{ display : 'flex', justifyContent:"center", border:'1px solid lightgray'}}>
 
                     <Row>
                         <Menu.Item icon ={<PlayCircleOutlined />}><Link href="/">홈으로</Link></Menu.Item>
