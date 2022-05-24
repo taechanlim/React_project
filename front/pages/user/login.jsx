@@ -68,7 +68,7 @@ const Login = () => {
 
     return(
         <>
-        <div style={{width:'15%',height:'50%',border:'1px solid lightgray',marginLeft:'42%',marginRight:'42%',marginTop:'55px'}}>
+        <div style={{width:'15%',height:'50%',border:'1px solid lightgray',marginLeft:'42%',marginRight:'42%',marginTop:'55px',background:'#ffffff'}}>
             <form onSubmit={handleSubmit} >
                 <ul style={{listStyle:'none'}}>
                     {isLogin 
