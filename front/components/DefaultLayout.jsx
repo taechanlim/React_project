@@ -11,7 +11,21 @@ import { useRouter } from 'next/router';
 
 const DefaultLayout = ({ children }) => {
     const [isCookie,setisCookie] = useState()
+
+    const homepage = () => {
+        if(document.cookie){
+        const token = document.cookie
+        const [,payload,] = token.split('.')
+        const decodingPayload = Buffer.from(payload,'base64').toString()
+        const nickname = JSON.parse(decodingPayload).nickname
+        location.href=`/minihomepage/${nickname}`
+    }else{
+        alert('로그인 후 이용하세요')
+        location.href='/'
+    }
+    }
     
+
     const router = useRouter();
     const feedURL = router.pathname.split('/')[1]
     
@@ -52,7 +66,7 @@ const DefaultLayout = ({ children }) => {
                         }
                         
                         <Menu.Item icon ={<UsergroupAddOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
-                        <Menu.Item icon ={<ShopOutlined />}><Link href="/user/minihomepage">미니홈피</Link></Menu.Item>
+                        <Menu.Item onClick={homepage} icon ={<ShopOutlined />}>미니홈피</Menu.Item>
                         <Menu.Item icon={<PlusOutlined />}><Link href="/feed/write">피드작성</Link></Menu.Item>
                         <Menu.Item icon={<DollarCircleOutlined />}><Link href="/nftmarket/wallet">NFT MARKET</Link></Menu.Item>
                         <Menu.Item icon={<GithubOutlined />}><Link href="https://github.com/taechanlim/React_project">Github</Link></Menu.Item>

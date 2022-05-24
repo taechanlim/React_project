@@ -1,42 +1,30 @@
 import React from "react";
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 import styled from 'styled-components';
 import { UserOutlined, HomeOutlined } from '@ant-design/icons';
-const { Header, Content, Footer, Sider } = Layout;
- 
-function Minihomepage() {
+const { Header, Content, Footer } = Layout;
+const axios = require('axios')
+import { useRouter } from 'next/router'
+
+
+
+function Minihomepage(props) {
+    const router=useRouter()
+    console.log(router)
   return (
-    <Layout>
-      <StyledSider>
-        <Menu mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1">
-              <HomeOutlined />
-              <span>Mini Homepage</span>
-          </Menu.Item>
-          <Menu.Item key="2">
-              <UserOutlined />
-              <span>My NFT</span>
-          </Menu.Item>
-        </Menu>
-      </StyledSider>
       <Layout>
         <StyledHeader>Welcome To My MiniHomepage</StyledHeader>
         <StyledContent>
-         Content
+         <div>
+
+         </div>
         </StyledContent> 
         <Footer style={{ textAlign: 'center' }}>from ... </Footer>
       </Layout>
-    </Layout>
   );
 }
  
-const StyledSider = styled(Sider)`
-  overflow: auto;
-  height: 100vh;
-  position: fixed;
-  background: white;
-  left: 0;
-`
+
 const StyledHeader = styled(Header)`
   padding: 0;
   text-align: center;
@@ -54,6 +42,17 @@ const StyledContent = styled(Content)`
   overflow: initial;
 `
 
+export async function getServerSideProps(){
+    
+  const response = await axios.post('http://localhost:4001/api/user/info')
+  
+  const list = response.data.result
+  
+  return{
+      props:{
+          list:list
+      }
+  }
+}
 
 export default Minihomepage
-
