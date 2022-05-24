@@ -40,11 +40,11 @@ const Update = ()=>{
     }
     return(
         <>
-         <div class="feedUpdate">
+         <div class="feedUpdate" style={{borderRadius:'5px 5px 5px 5px',border:'1px solid lightgray',width:'15.7%',margin:'0 auto'}}>
             <form onSubmit={handleSubmit}>
-                <div><input name="subject" type="text" placeholder="제목" value={values.subject} onChange={handleChange}/></div>
-                <div><input name="content" type="text" placeholder="내용" value={values.content} onChange={handleChange}/></div>
-                <div><button type="submit">피드 업데이트</button></div>
+                <div><input name="subject" type="text" placeholder="제목" value={values.subject} onChange={handleChange} style={{width:'300px',border:'1px solid lightgray',borderRadius:'5px 5px'}}/></div>
+                <div><input name="content" type="text" placeholder="내용" value={values.content} onChange={handleChange} style={{width:'300px',height:'200px',border:'1px solid lightgray',borderRadius:'5px 5px'}}/></div>
+                <div><button type="submit" style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'300px',height:'80px'}}>피드 업데이트</button></div>
             </form>
         </div>
         </>

@@ -5,6 +5,7 @@ import React, { Fragment,useState,useEffect } from "react";
 import { Card ,Popover, Button} from 'antd';
 const { Meta } = Card;
 
+
 const Index = (props) => {
     const list = props.list
     const [isCookie,setisCookie] = useState()
@@ -54,7 +55,7 @@ const Index = (props) => {
                     return (
                         <>
                         
-                    <div key={info.idx} style={{marginLeft:'34%',marginRight:'34%'}}>
+                    <div key={info.idx} style={{width:'30%',margin:'0 auto'}}>
                         {/* <Link href={`/user/main/reservation/detail/${info.idx}`}>
                         <input type="button" value={"button" + info.idx} alt="" />
                         </Link> */}
@@ -64,6 +65,7 @@ const Index = (props) => {
                           width: 600,
                           marginTop:30,
                           border:'1px solid lightgray',
+                          borderRadius:'10px 10px'
                         }}
                         
                       >
