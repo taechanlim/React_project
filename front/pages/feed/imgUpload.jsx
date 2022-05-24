@@ -17,7 +17,7 @@ function ImageUploadExample() {
   
     return (
       <>
-        <h1>이미지 미리보기</h1>
+        <h3 style={{fontWeight:'bold'}}>이미지 미리보기</h3>
         <table>
           <tbody>
             <tr>

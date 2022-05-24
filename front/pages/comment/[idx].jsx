@@ -54,7 +54,7 @@ const commentList = (props) => {
                     return (
                         <>
                         
-                    <div key={info.idx} style={{marginLeft:'34%',marginRight:'34%'}}>
+                    <div key={info.idx} style={{width:'30%',margin:'0 auto'}}>
                         {/* <Link href={`/user/main/reservation/detail/${info.idx}`}>
                         <input type="button" value={"button" + info.idx} alt="" />
                         </Link> */}
@@ -64,6 +64,7 @@ const commentList = (props) => {
                           width: 600,
                           marginTop:30,
                           border:'1px solid lightgray',
+                          borderRadius:'10px 10px 10px 10px'
                         }}
                         
                       >
@@ -90,7 +91,7 @@ const commentList = (props) => {
 	        </Fragment> 
         </div>
 
-                <div style={{width:'25%',height:'50%',border:'1px solid lightgray',marginLeft:'38%'}}>
+                <div style={{backgroundColor:'#ffffff',width:'30%',margin:'0 auto',height:'50%',border:'1px solid lightgray',borderRadius:'10px 10px 10px 10px'}}>
                 <h1>댓글 쓰기</h1>
                 <form onSubmit={handleSubmit}>
                     <Space direction="vertical">
@@ -108,7 +109,7 @@ const commentList = (props) => {
                 <div >
                     {list?.map((info) => {
                     return (
-                    <div key={info.comment_idx} style={{width:'15%',height:'50%',border:'1px solid lightgray',marginLeft:'43%'}}>
+                    <div key={info.comment_idx} style={{backgroundColor:'#ffffff',width:'30%',margin:'0 auto',height:'50%',border:'1px solid lightgray',marginTop:'20px',borderRadius:'10px 10px 10px 10px'}}>
 
                         
                         <div style={{fontWeight:'bold'}}>{info.nickname}</div>
