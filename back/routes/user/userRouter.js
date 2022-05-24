@@ -5,6 +5,7 @@ const userController = require('./userController.js')
 
 router.post('/register',userController.register)
 router.post('/login',userController.login)
+router.post('/info',userController.info)
 router.post('/update',userController.update)
 router.post('/delete',userController.delete)
 router.post('/wallet',userController.wallet)

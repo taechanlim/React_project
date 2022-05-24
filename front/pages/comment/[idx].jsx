@@ -5,12 +5,13 @@ import { useRouter } from "next/router";
 import { Input, Space,Card } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 const { Meta } = Card;
-
+import Router from 'next/router'
 
 const commentList = (props) => {
     const [values,setValues] = useState({comment:''})
     const list = props.list
     const list2 = props.list2
+    const {idx} =props.idx
     const router = useRouter() //idx값 따오기
     const handleChange = (e) => {
     const {name,value} = e.target
@@ -21,7 +22,7 @@ const commentList = (props) => {
 }
     const token = document.cookie
     const body = {values,token,router}
-
+    
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
@@ -33,7 +34,8 @@ const commentList = (props) => {
             console.log(result);
             if(result.data.errno === 0){
                 alert('작성 완료')
-                location.href='/'
+                Router.push(`/comment/${idx}`)
+                
             }else{
                 alert('작성 실패')
             }
@@ -146,7 +148,8 @@ export async function getServerSideProps(context){
     return{
         props:{
             list:list,
-            list2:list2
+            list2:list2,
+            idx:idx
         }
     }
 }

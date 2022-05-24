@@ -1,9 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-
 import Main from "./main";
 import { mintAnimalTokenContract } from "./web3Config";
+
+import Layout from './Layout'
 
 const MarketApp: FC = () => {
   const [account, setAccount] = useState<string>("");
@@ -28,9 +29,11 @@ const MarketApp: FC = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/market/main" element={<Main account={account} />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/market/main" element={<Main account={account} />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 };

@@ -1,10 +1,11 @@
 import React,{useState,useEffect} from 'react'
+import Router from 'next/router'
 const axios = require('axios')
 import { useCookies } from 'react-cookie';
+
 const Update = ()=>{
     const [values,setValues] = useState({subject:'',content:''})
     const idx = location.href.split('?')[1]
-    console.log('여기는 지금 넘어왔',idx);
     
     const handleChange = (e) => {
         
@@ -28,7 +29,7 @@ const Update = ()=>{
             const result = await axios.post('http://localhost:4001/api/feed/update',body)
             if(result.data.errno === 0){
                 alert('작성 완료')
-                location.href='/'
+                Router.push(`/comment/${idx}`)
             }else{
                 alert('작성 실패')
             }

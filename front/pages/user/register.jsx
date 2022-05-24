@@ -2,6 +2,7 @@ import React, { useState } from "react"
 const axios = require('axios')
 import { Input, Space } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import Router from 'next/router'
 
 const Register = () => {
     const [userid,setUserid] = useState('')
@@ -41,7 +42,7 @@ const Register = () => {
             console.log(result.data.errno)
             if(result.data.errno === 0){
                 alert('계정이 생성되었다.')
-                location.href='/'
+                Router.push('/user/login')
             }
         }
         } catch(error){

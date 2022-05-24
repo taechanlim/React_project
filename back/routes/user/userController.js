@@ -2,6 +2,7 @@ const pool = require('../../Database/db.js').pool
 const {createToken} = require('../../utils/jwt')
 const {alertMove} = require('../../utils/alert.js')
 
+
 exports.register = async (req,res)=>{
     const {userid,userpw,nickname,phonenumber} = req.body
     console.log(req.body)
@@ -79,6 +80,28 @@ exports.login = async (req,res)=>{
     }
 }
 
+exports.info = async (req,res)=>{
+    const {nickname} = req.body
+    
+    const sql = `SELECT * FROM user WHERE nickname='${nickname.nickname}'`
+    
+    try{
+        const [result] = await pool.execute(sql)
+
+        const response = {
+            result,
+            errno:0,
+        }
+        res.json(response)
+
+    }catch(e){
+        const response = {
+            result:[],
+            errno:1,
+        }
+        res.json(response)
+    }
+}
 
 exports.update = async (req,res)=>{
     const {token,userpw,nickname,phonenumber} = req.body

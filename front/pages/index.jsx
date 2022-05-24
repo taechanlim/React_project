@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Router from 'next/router'
 import List from './feed/list'
 const axios = require('axios')
 import React, { Fragment,useState,useEffect } from "react";
@@ -8,6 +9,7 @@ const { Meta } = Card;
 
 const Index = (props) => {
     const list = props.list
+    
     const [isCookie,setisCookie] = useState()
     
     const cookiecheck = () => {
@@ -37,7 +39,7 @@ const Index = (props) => {
         const result = await axios.post('http://localhost:4001/api/feed/delete',body)
         console.log(result);
         alert('삭제되었습니다')
-        location.href='/'
+        Router.push('/')
     }
     const updateBtn = (i) => {
         console.log(i);

@@ -1,3 +1,4 @@
+import React,{useState,useEffect} from 'react'
 import Web3 from "web3";
 import { AbiItem } from "web3-utils";
 
@@ -424,6 +425,37 @@ const saleAnimalTokenAbi: AbiItem[] = [
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "_animalTokenId",
+				"type": "uint256"
+			}
+		],
+		"name": "purchaseAnimalToken",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_animalTokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_price",
+				"type": "uint256"
+			}
+		],
+		"name": "setForSaleAnimalToken",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "address",
 				"name": "_mintAnimalTokenAddress",
 				"type": "address"
@@ -495,42 +527,19 @@ const saleAnimalTokenAbi: AbiItem[] = [
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_animalTokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "purchaseAnimalToken",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_animalTokenId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_price",
-				"type": "uint256"
-			}
-		],
-		"name": "setForSaleAnimalToken",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	}
 ];
 
-const mintAnimalTokenAddress = "0xAa6de261eEb49D2f6dA7ff62b71f1D27674C084a";
-const saleAnimalTokenAddress = "0x582AE943Aba68adF82cf438e103799D98aBACc4c";
+const mintAnimalTokenAddress = "0xe81853718F84Bab7553463238CE0C67b2C6cf95A";
+const saleAnimalTokenAddress = "0x23BDdf1cb3f70bD2162A604d99b165701381108f";
+
+
+// const [provider, setProvider] = useState({})
+// const ethers = require('ethers');
+
+// useEffect(() => {
+// 	setProvider(new ethers.providers.Web3Provider(window.ethereum))
+// }, []);
 
 export const web3 = new Web3(window.ethereum);
 
