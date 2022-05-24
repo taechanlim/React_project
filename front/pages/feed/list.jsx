@@ -1,7 +1,7 @@
 const axios = require('axios')
 import React, { Fragment } from "react";
 import Link from "next/link";
-
+import Router from 'next/router'
 
 const List = (props) => {
     const list = props.list
@@ -9,7 +9,7 @@ const List = (props) => {
         const body = {idx:i}
         const result = await axios.post('http://localhost:4001/api/feed/delete',body)
         alert('삭제되었습니다')
-        location.href='/feed/list'
+        Router.push('/feed/list')
     }
     const updateBtn = (i) => {
         console.log(i);
