@@ -9,6 +9,7 @@ const { Meta } = Card;
 
 const Index = (props) => {
     const list = props.list
+    
     const [isCookie,setisCookie] = useState()
     
     const cookiecheck = () => {
