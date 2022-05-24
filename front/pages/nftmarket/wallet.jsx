@@ -15,6 +15,7 @@ function Wallet() {
   const [pressStart, setPressStart] = useState(false);
   const [loading, setLoading] = useState(false);
 
+
   useEffect(()=>{
     if(typeof window.ethereum != "undefined"){
       try{
@@ -32,7 +33,6 @@ function Wallet() {
       method: "eth_requestAccounts",
     })
     setAccount(accounts[0]);
-    
   }
   
   useEffect(()=>{
@@ -90,6 +90,7 @@ function Wallet() {
           onClick={()=>{
             connectWallet();
             setPressStart(true);
+            console.log('위치 확인')
           }}
         >
           {pressStart ? account : "Connect Wallet"}

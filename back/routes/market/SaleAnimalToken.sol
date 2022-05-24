@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0; // 컴파일러 명시
 
-import "MintAnimalToken.sol";
+import "./MintAnimalToken.sol";
 
 contract SaleAnimalToken {
     // mintAnimal을 디플로이하면 나오는 주소값을 저장함

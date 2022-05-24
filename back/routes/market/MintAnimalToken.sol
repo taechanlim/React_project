@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+// 오류나도 이게 맞는 문법임 손대지말것
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
 // MintAnimalToken이 SaleAnimalToken보다 먼저 생성되므로
 // 자동적으로 가져올 수 없으니 임의로 import 해주기
-import "SaleAnimalToken.sol";
+import "./SaleAnimalToken.sol";
 
 contract MintAnimalToken is ERC721Enumerable {
     constructor() ERC721("h662Animals", "HAS") {}
