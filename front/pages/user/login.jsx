@@ -68,7 +68,7 @@ const Login = () => {
 
     return(
         <>
-        <div style={{borderRadius:'10px 10px 10px 10px',width:'15%',height:'50%',border:'1px solid lightgray',marginLeft:'42%',marginRight:'42%',marginTop:'55px',background:'#ffffff'}}>
+        <div style={{borderRadius:'10px 10px 10px 10px',width:'15%',height:'50%',border:'1px solid lightgray',margin:'0 auto',marginTop:'55px',background:'#ffffff'}}>
             <form onSubmit={handleSubmit} >
                 <ul style={{listStyle:'none'}}>
                     {isLogin 
@@ -82,10 +82,12 @@ const Login = () => {
                         <Input
                         name="userid" onChange={handleChange}
                         placeholder="input userid"
+                        style={{marginLeft:'-25px',width:'200px'}}
                         />
                         <Input.Password
                         name="userpw" onChange={handleChange}
                         placeholder="input password"
+                        style={{marginLeft:'-25px',width:'200px'}}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
                     </Space>
@@ -97,7 +99,7 @@ const Login = () => {
                         <label>패스워드</label>
                         <input type="password" name="userpw" onChange={handleChange} />
                     </li> */}
-                    <li><input type="submit" value="로그인" disabled={submit} /></li> 
+                    <li><input type="submit" value="로그인" disabled={submit}  style={{marginLeft:'-25px',marginTop:'20px',background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px'}}/></li> 
                     </>}
                     
                 </ul>
