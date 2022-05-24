@@ -531,7 +531,7 @@ const saleAnimalTokenAbi: AbiItem[] = [
 ];
 
 const mintAnimalTokenAddress = "0xe81853718F84Bab7553463238CE0C67b2C6cf95A";
-const saleAnimalTokenAddress = "0x23BDdf1cb3f70bD2162A604d99b165701381108f";
+export const saleAnimalTokenAddress = "0x23BDdf1cb3f70bD2162A604d99b165701381108f";
 
 
 // const [provider, setProvider] = useState({})
