@@ -49,33 +49,38 @@ const Register = () => {
         }
     }
     return(
-        <div class="loginRegister" style={{border:'1px solid lightgray',width:'9.5%',marginLeft:'45%'}}>
+        <div class="loginRegister" style={{border:'1px solid lightgray',width:'20%',margin:'0 auto',marginTop:'55px',background:'#ffffff'}}>
             <form onSubmit={onSubmit}>
                     <Space direction="vertical">
                         <Input
                         name="userid" onChange={onNameHandler}
                         placeholder="input userid"
+                        style={{width:'190%'}}
                         />
                         <Input
                         name="nickname" onChange={onNickname}
                         placeholder="input nickname"
+                        style={{width:'190%'}}
                         />
                         <Input.Password
                         name="userpw" onChange={onPasswordHandler}onPhoneHandler
                         placeholder="input password"
+                        style={{width:'190%'}}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
                         <Input.Password
                         name="userpw" onChange={onConfirmPasswordHandler}
                         placeholder="input password"
+                        style={{width:'190%'}}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
                         <Input
                         name="phonenumber" onChange={onPhoneHandler}
                         placeholder="input phone number"
+                        style={{width:'190%'}}
                         />
                     </Space>
-                <div><button type="submit"style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'182px',height:'80px',marginTop:'40px'}} >계정 생성</button></div>
+                <div><button type="submit"style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'100%',height:'80px',marginTop:'40px'}} >계정 생성</button></div>
             </form>
         </div>
     )

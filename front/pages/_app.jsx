@@ -3,10 +3,13 @@ import 'antd/dist/antd.css'
 const App = ({Component,pageProps}) => {
     return(
         <>
-            <DefaultLayout>
+
+            <DefaultLayout >
+            <div  style={{background:'#FAFAFA',width:'100%',marginTop:'50px'}}>
                 <Component {...pageProps} />
+            </div>
             </DefaultLayout>
-            
+
         </>
     )
 }

@@ -547,7 +547,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MintAnimalToken.sol": "MintAnimalToken"
+			"routes/market/MintAnimalToken.sol": "MintAnimalToken"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -649,20 +649,20 @@
 				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
 			]
 		},
-		"MintAnimalToken.sol": {
-			"keccak256": "0x2a55f16e28fa82461efc08c4a5758bfd1ba1b052bd664567deaaed908fc263fd",
+		"routes/market/MintAnimalToken.sol": {
+			"keccak256": "0xe085cc8045699c3af8cdf36d7e7fc73ca0c27c820a525e3d0362f7172c604664",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0e3f0d009809e850aa714a8006de6285566ce26821e24a5dd08039132cf2c492",
-				"dweb:/ipfs/Qme5hetsekAntj139HU7i8ZDFkAxhv2yKcPn1zuUpkupJE"
+				"bzz-raw://61868e0c61be4f8adc2b6189e5b14e3ed6dbc9f876bcbcf3b0847c849849cedd",
+				"dweb:/ipfs/QmPNZcLuPcLCB4sEycyXfcVY2YCcUvKsfDQsRRa833B65N"
 			]
 		},
-		"SaleAnimalToken.sol": {
-			"keccak256": "0x6170604c400cb193f41686d2693e881eee2e5b0553b10ac7df5150c9b105731f",
+		"routes/market/SaleAnimalToken.sol": {
+			"keccak256": "0xba42654a48e1d333061bab81962d06a94854120f414d6706cd76edabb6025e46",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://85858811a6906d84b1de2d76485c8960e2ddb4e89685e596a30959808f993cac",
-				"dweb:/ipfs/QmTRw5xYGiRwCyWc1XPrnU7aiCLnsyegAH9Ceo4QbasAJK"
+				"bzz-raw://890a4132af5b4319b7cc3025bb107580dcf47aa71f27401bb283ba58bad0c39d",
+				"dweb:/ipfs/QmXHWxBU1qF2x414nfWnukAd1ywh2AnnQBRFgXupyitmsz"
 			]
 		}
 	},

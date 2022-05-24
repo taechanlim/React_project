@@ -15,10 +15,11 @@ const Main: FC<MainProps> = ({account}) => {
   const onClickMint = async () => {
     try {
       if (!account) return;
-
+      
       const response = await mintAnimalTokenContract.methods
-        .mintAnimalToken() // 민팅 기능
-        .send({ from: account }); // 누가 보냈는지
+      .mintAnimalToken() // 민팅 기능
+      .send({ from: account }); // 누가 보냈는지
+      console.log('실행체크444')
 
         // status가 true일때 실행
         if(response.status){
@@ -43,16 +44,36 @@ const Main: FC<MainProps> = ({account}) => {
       console.log(response); // 결과를 출력함
     } catch (error) {
       console.error(error);
+      console.log(error)
+      // Error: TxGasUtil - Trying to call a function on a non-contract address
+      //       {
+      //         "originalError": {
+      //           "errorKey": "transactionErrorNoContract",
+      //           "getCodeResponse": "0x"
+      //         }
+      //       }
+      //           at Object._fireError (index.js?17a6:49:1)
+      //           at sendTxCallback (index.js?1819:548:1)
+      //           at cb (util.js?2b38:701:1)
+      //           at callbackifyOnRejected (util.js?2b38:678:1)
+      //           at Item.run (browser.js?5cb3:153:1)
+      //           at drainQueue (browser.js?5cb3:123:1)
+
+      const response = await mintAnimalTokenContract.methods
+      console.log('1  --> ',response)
+      const response1 = await mintAnimalTokenContract.methods.mintAnimalToken()
+      console.log('2  --> ',response1)
+      const response2 = await mintAnimalTokenContract.methods.mintAnimalToken().send({ from: account });
+      console.log('3  --> ',response2)
     }
   }
 
   return (
     <>
-      <Layout />
       <div>
-      {newAnimalType
-      ? (<AnimalCard animalType={newAnimalType} />)
-      : (<span>Let's mint Animal Card!!!</span>)}
+        {newAnimalType
+        ? (<AnimalCard animalType={newAnimalType} />)
+        : (<span>Let's mint Animal Card!!!</span>)}
       </div>
       <button onClick={onClickMint}>
         Mint

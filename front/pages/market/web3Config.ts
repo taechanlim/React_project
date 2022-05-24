@@ -613,8 +613,8 @@ const saleAnimalTokenAbi: AbiItem[]=[
 ];
 
 // 지갑주소 owner of
-const mintAnimalTokenAddress = "0x05E2BAa242cffd7Bb8D41B0E659B965782294114";
-export const saleAnimalTokenAddress = "0xc1cb46c792F2aBfbA421b3969613a387629aB91d";
+const mintAnimalTokenAddress = "0xd9145CCE52D386f254917e481eB44e9943F39138";
+export const saleAnimalTokenAddress = "0xD7ACd2a9FD159E69Bb102A1ca21C9a3e3A5F771B";
 
 export const web3 = new Web3(window.ethereum);
 

@@ -56,6 +56,7 @@ const DefaultLayout = ({ children }) => {
                         <Menu.Item icon={<DollarCircleOutlined />}><Link href="/nftmarket/wallet">NFT MARKET</Link></Menu.Item>
                         <Menu.Item icon={<GithubOutlined />}><Link href="https://github.com/taechanlim/React_project">Github</Link></Menu.Item>
                         <Menu.Item icon={<LoadingOutlined />}>페이지 동작중!</Menu.Item>
+                        <Menu.Item><Link href="/market/marketApp">NFT</Link></Menu.Item>
                     </Row>
 
                 </Menu>

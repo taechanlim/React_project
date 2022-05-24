@@ -55,13 +55,13 @@ const Update = ()=>{
     }
     return(
         <>
-         <div class="loginUpdate" style={{width:'10.5%',height:'50%',border:'1px solid lightgray',marginLeft:'44%'}}>
+         <div class="loginUpdate" style={{borderRadius:'10px 10px 10px 10px',width:'10.5%',height:'50%',border:'1px solid lightgray',marginLeft:'44%',marginTop:'55px',background:'#ffffff'}}>
             <form onSubmit={onSubmit}>
                 
                 <Space direction="vertical">
                         <Input
                         name="nickname" onChange={onNickname}
-                        placeholder="input userid"
+                        placeholder="input nickname"
                         />
                         <Input.Password
                         name="userpw" onChange={onPasswordHandler}

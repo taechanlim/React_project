@@ -1,11 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
-import { IMyAnimalCard } from "../MyAnimalCard";
+import { IMyAnimalCard } from "./MyAnimalCard";
 import {
   mintAnimalTokenContract,
   saleAnimalTokenContract,
-} from "../web3Config";
+} from "./web3Config";
 // 생성한 SaleAnimalCard import
-import SaleAnimalCard from "../SaleAnimalCard";
+import SaleAnimalCard from "./SaleAnimalCard";
 
 interface SaleAnimalProps {
   account: string;
