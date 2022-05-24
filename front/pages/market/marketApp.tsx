@@ -5,6 +5,8 @@ import Main from "./main";
 import { mintAnimalTokenContract } from "./web3Config";
 
 import Layout from './Layout'
+import MyAnimal from './my-animal'
+// import SaleAnimal from './sale-animal'
 
 const MarketApp: FC = () => {
   const [account, setAccount] = useState<string>("");
@@ -32,6 +34,8 @@ const MarketApp: FC = () => {
       <Layout>
         <Routes>
           <Route path="/market/main" element={<Main account={account} />} />
+          <Route path="/market/my-animal" element={<MyAnimal account={account} />} />
+          {/* <Route path="/market/sale-animal" element={<SaleAnimal account={account} />} /> */}
         </Routes>
       </Layout>
     </BrowserRouter>
