@@ -42,11 +42,16 @@ const commentUpdate = ()=>{
     }
     return(
         <>
-         <div class="commentUpdate">
+         <div class="commentUpdate" style={{margin:'0 auto'}}>
+             
             <form onSubmit={handleSubmit}>
-                <div><input name="comment" type="text" placeholder="내용" value={values.comment} onChange={handleChange}/></div>
-                <div><button type="submit">수정 완료</button></div>
+                <div style={{marginLeft:'35%',width:'100%' ,height:'100%'}}>
+                    <p>{values.comment}</p>
+                    <div style={{width:'100%',margin:'0 auto'}}><input name="comment" type="text" placeholder="내용" value={values.comment} onChange={handleChange} style={{width:'30%',margin:'0 auto',border:'1px solid lightgray'}}/></div>
+                    <div style={{width:'100%',margin:'0 auto'}}><button type="submit" style={{ background:'#FFFFFF', border:'1.5px solid lightgray',width:'30%',height:'80px',marginTop:'40px'}}>수정 완료</button></div>
+                </div>
             </form>
+            
         </div>
         </>
     )

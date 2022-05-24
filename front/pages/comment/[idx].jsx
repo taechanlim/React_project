@@ -43,6 +43,9 @@ const commentList = (props) => {
         
         
     }
+    const updateBtn = (i) => {
+        console.log(i);
+    }
     return(
         <div>
             <>
