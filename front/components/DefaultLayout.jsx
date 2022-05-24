@@ -14,6 +14,7 @@ const DefaultLayout = ({ children }) => {
     
     const homepage = () => {
         if(document.cookie){
+
             const token = document.cookie
             const [,payload,] = token.split('.')
             const decodingPayload = Buffer.from(payload,'base64').toString()
@@ -23,6 +24,7 @@ const DefaultLayout = ({ children }) => {
             alert('로그인 후 이용해주세요')
             Router.push('/user/login')
         }
+
     }
 
     const router = useRouter();
