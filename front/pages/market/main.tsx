@@ -1,10 +1,20 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
-const Main: FC = () => {
+interface MainProps {
+    account: string;
+}
+
+const Main: FC<MainProps> = ({ account }) => {
+    const [newAnimalCard, setNewAnimalCard] = useState<string>();
+
     return (
         <>
-            <div>Main</div>
-            <button>버튼인데 너도 안보일거니</button>
+            {   
+                newAnimalCard
+                ? ( <div>AnimalCard</div>)
+                : ( <span>Let's mint Animal Card!!!</span>)
+            }
+            <button>Mint</button>
         </>
     )
 };

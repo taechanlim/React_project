@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import reportWebVitals from "./reportWebVitals";
-import { mintAnimalTokenContract } from "./web3Config";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 
 import Main from "./main";
+import { mintAnimalTokenContract } from "./web3Config";
 
 const MarketApp: FC = () => {
   const [account, setAccount] = useState<string>("");
@@ -22,28 +22,16 @@ const MarketApp: FC = () => {
     }
   };
 
-  const getBalanceOf = async () => {
-    const response = await mintAnimalTokenContract.methods
-      .balanceOf(account)
-      .call();
-
-    console.log(response);
-  };
-
   useEffect(() => {
     getAccount();
-
-    if (account) {
-      getBalanceOf();
-    }
   }, [account]);
 
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/market/main" element={<Main account={account} />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 };
 export default MarketApp;

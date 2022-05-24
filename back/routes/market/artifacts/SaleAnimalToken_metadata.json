@@ -228,11 +228,11 @@
 			]
 		},
 		"routes/market/MintAnimalToken.sol": {
-			"keccak256": "0xee11d3213038685debd990b8794c3e059e366e39874177aede35f0979b72ff9a",
+			"keccak256": "0x6e9aac482a6dc918f68da7d671a70834a8e3500ec2c948f9f1635361c1af4642",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://49170ca7f7d9b21eed28e8294c3ad871630366a0f07a7c6a9602bf5a8d8ef6c8",
-				"dweb:/ipfs/QmQkJCta9NXtgJu4Gmh6N3n8rAwGFp3j1MxnESEVhF9egf"
+				"bzz-raw://5b2682ce3be088dd1596deaf7acdd85f857e2d5f9737fcbed4896619294e28b7",
+				"dweb:/ipfs/QmZwe6brnVUnVvtiJaCB9Ex7vN7npowENzcUYw1EpZTjig"
 			]
 		},
 		"routes/market/SaleAnimalToken.sol": {
