@@ -83,7 +83,7 @@ const DefaultLayout = ({ children }) => {
                 {children}
             </div>
             <br /><br /><br /><br />
-            <div>
+            <div style={{backgroundColor:'skyblue'}}>
                 <h3><Footer /></h3>
             </div>
 

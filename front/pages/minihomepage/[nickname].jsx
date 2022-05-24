@@ -33,11 +33,11 @@ function Main(props) {
            
            
            {/* 미니룸 들어가는 div */}
-           <div style={{position:'absolute',zIndex:'1'}}><img src="/static/miniroom.png" style={{float:'left',width:'900px',marginTop:'10%',marginLeft:'30%'}}/></div>
+           <div style={{position:'absolute',zIndex:'1'}}><img src="/static/miniroom.png" style={{float:'left',width:'1300px',marginLeft:'6%'}}/></div>
            
            
            {/* NFT 들어가는 div */}
-           <div style={{position:'absolute',zIndex:'5',width:'10%',height:'20%',border:'1px solid gray',marginLeft:'31.5%',marginTop:'15%'}}></div>
+           <div style={{transform:'rotate(-25deg)',borderRadius:'50%',position:'absolute',zIndex:'5',width:'19%',height:'38%',border:'1px solid gray',marginLeft:'10%',marginTop:'2%'}}></div>
          </div>
       </>
   );
