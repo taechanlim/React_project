@@ -5,6 +5,7 @@ import Update from './update';
 import Link from 'next/link';
 import { Input, Space } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import Router from 'next/router'
 
 
 const Login = () => {
@@ -28,7 +29,7 @@ const Login = () => {
 
     const logout = async () => {
         removeCookie(COOKIE_KEY, { path: '/' });
-        location.href='/'
+        Router.push('/')
     }
     const body = {
         userid:values.userid,
@@ -54,7 +55,7 @@ const Login = () => {
                 alert(`
                     아이디 : ${values.userid}
                 `)
-                location.href='/'
+                Router.push('/')
             }else{
                 alert('로그인실패')
             }

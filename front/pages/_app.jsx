@@ -1,4 +1,4 @@
-import DefaultLayout from "../components/DefaultLayout"
+import DefaultLayout from "../Components/DefaultLayout"
 import 'antd/dist/antd.css'
 const App = ({Component,pageProps}) => {
     return(

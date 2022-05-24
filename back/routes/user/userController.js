@@ -81,13 +81,9 @@ exports.login = async (req,res)=>{
 }
 
 exports.info = async (req,res)=>{
-    console.log('ewq')
-    // const {token} = req.body
-    // const [,payload,] = token.split('.')
-    // const decodingPayload = Buffer.from(payload,'base64').toString()
-    // const nickname = JSON.parse(decodingPayload).nickname
+    const {nickname} = req.body
     
-    const sql = `SELECT * FROM user WHERE nickname=${nickname}`
+    const sql = `SELECT * FROM user WHERE nickname='${nickname.nickname}'`
     
     try{
         const [result] = await pool.execute(sql)

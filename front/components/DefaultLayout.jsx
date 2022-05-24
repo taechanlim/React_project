@@ -4,27 +4,28 @@ import { InfoCircleOutlined, UsergroupAddOutlined, ShopOutlined ,InstagramOutlin
 import Footer from './Footer'
 //import styles from 'layout.module.css'
 import {useState,useEffect} from 'react'
-import { useRouter } from 'next/router';
+import Router,{ useRouter } from 'next/router';
 
 
 
 
 const DefaultLayout = ({ children }) => {
     const [isCookie,setisCookie] = useState()
-
+    
     const homepage = () => {
         if(document.cookie){
-        const token = document.cookie
-        const [,payload,] = token.split('.')
-        const decodingPayload = Buffer.from(payload,'base64').toString()
-        const nickname = JSON.parse(decodingPayload).nickname
-        location.href=`/minihomepage/${nickname}`
-    }else{
-        alert('로그인 후 이용하세요')
-        location.href='/user/login'
+
+            const token = document.cookie
+            const [,payload,] = token.split('.')
+            const decodingPayload = Buffer.from(payload,'base64').toString()
+            const nickname = JSON.parse(decodingPayload).nickname
+            Router.push(`/minihomepage/${nickname}`)
+        }else{
+            alert('로그인 후 이용해주세요')
+            Router.push('/user/login')
+        }
+
     }
-    }
-    
 
     const router = useRouter();
     const feedURL = router.pathname.split('/')[1]
@@ -33,7 +34,7 @@ const DefaultLayout = ({ children }) => {
         if(feedURL == 'feed' || feedURL == 'nftmarket'){
             if(!document.cookie){
                 alert('로그인 후 이용하세요')
-                location.href='/'
+                Router.push('/user/login')
             }
         }
     }

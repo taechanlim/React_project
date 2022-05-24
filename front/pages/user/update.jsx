@@ -3,6 +3,7 @@ const axios = require('axios')
 import { useCookies } from 'react-cookie';
 import { Input, Space } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import Router from 'next/router'
 
 const Update = ()=>{
     const [nickname,setNickname] = useState('')
@@ -32,7 +33,7 @@ const Update = ()=>{
             console.log(result.data.errno)
             if(result.data.errno === 0){
                 alert('계정의 수정이 완료')
-                location.href='/'
+                Router.push('/')
             }
         }
         
@@ -42,7 +43,7 @@ const Update = ()=>{
 
     const logout = async () => {
         removeCookie(COOKIE_KEY, { path: '/' });
-        location.href='/'
+        Router.push('/')
     }
 
     const onDelete = async (event) =>{

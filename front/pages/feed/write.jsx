@@ -3,7 +3,7 @@ const axios = require('axios')
 import Img from './imgUpload'
 import { Input, Space } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-
+import Router from 'next/router'
 const Write = () => {
     const [values,setValues] = useState({subject:'',content:''})
     
@@ -28,7 +28,7 @@ const Write = () => {
             const result = await axios.post('http://localhost:4001/api/feed/write',body)
             if(result.data.errno === 0){
                 alert('작성 완료')
-                location.href='/'
+                Router.push('/')
             }else{
                 alert('작성 실패')
             }
