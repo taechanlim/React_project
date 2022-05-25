@@ -3,7 +3,7 @@ const pool = require('../../Database/db.js').pool
 
 exports.list = async (req,res)=>{
     
-    const sql = `SELECT * from feed`
+    const sql = `SELECT * from feed ORDER BY idx DESC`
     
     try{
         const [result] = await pool.execute(sql)
