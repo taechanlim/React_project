@@ -54,6 +54,8 @@ const SaleAnimal: FC<SaleAnimalProps> = ({ account }) => {
               key={i}
               animalType={v.animalType}
               animalPrice={v.animalPrice}
+              animalTokenId={v.animalTokenId}
+              account={account}
             />
           );
         })}
