@@ -31,25 +31,23 @@ const MyAnimalCard: FC<MyAnimalCardProps> = ({
   const onClickSell = async () => {
     try {
       if (!account || !saleStatus) return;
-      console.log("account : ", account);
-      console.log("saleStatus : ", saleStatus);
-      console.log("animalTokenId : ", animalTokenId);
-      console.log("sellPrice : ", sellPrice);
-      const a = web3.utils.toWei(sellPrice, "ether");
-      console.log("wei : ", a);
+      // console.log("account : ", account);
+      // console.log("saleStatus : ", saleStatus);
+      // console.log("animalTokenId : ", animalTokenId);
+      // console.log("sellPrice : ", sellPrice);
+      // const a = web3.utils.toWei(sellPrice, "ether");
+      // console.log("wei : ", a);
 
-      const response =
-        await saleAnimalTokenContract.methods.setForSaleAnimalToken(
+      const response = await saleAnimalTokenContract.methods
+        .setForSaleAnimalToken(
           animalTokenId,
           web3.utils.toWei(sellPrice, "ether")
-        );
-      console.log("에러찾기1");
-      // .send({ from: account });
-      console.log(response.status);
+        )
+        .send({ from: account });
 
       if (response.status) {
-        // setMyAnimalPrice(web3.utils.toWei(sellPrice, "ether"));
-        console.log("에러찾기333");
+        setMyAnimalPrice(web3.utils.toWei(sellPrice, "ether"));
+        console.log(response);
       }
     } catch (error) {
       console.error(error);
@@ -57,26 +55,30 @@ const MyAnimalCard: FC<MyAnimalCardProps> = ({
   };
 
   return (
-    <div>
+    <>
       <AnimalCard animalType={animalType} />
       <div>
-        {animalPrice === "0" ? (
+        {myAnimalPrice === "0" ? (
           <>
             <input
               type="number"
               value={sellPrice}
               onChange={onChangeSellPrice}
             />
+            {"Matic"}
             <button onClick={onClickSell}>Sell</button>
-            {/* <button>Matic</button> */}
-            <div></div>
-            {/* <InputRightAddon children="Matic" /> */}
           </>
         ) : (
-          <span>{web3.utils.fromWei(animalPrice)} Matic</span>
+          <div>
+            {/*
+                    블록체인에서 가격을 가져올때 fromWei
+                    fromWei 가격에 맞게 알아서 0을 붙여줌.
+                */}
+            {web3.utils.fromWei(myAnimalPrice)} Matic
+          </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
