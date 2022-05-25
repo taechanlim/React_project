@@ -4,9 +4,10 @@ import Img from './imgUpload'
 import { Input, Space } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import Router from 'next/router'
+
 const Write = () => {
     const [values,setValues] = useState({subject:'',content:''})
-    
+    const multer = require('multer')
     
     const handleChange = (e) => {
         
