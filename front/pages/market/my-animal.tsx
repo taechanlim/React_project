@@ -18,23 +18,23 @@ const MyAnimal: FC<MyAnimalProps> = ({ account }) => {
         .balanceOf(account)
         .call();
 
+      if (balanceLength === "0") return;
+
       const tempAnimalCardArray = [];
 
-      for (let i = 0; i < parseInt(balanceLength, 10); i++) {
-        const animalTokenId = await mintAnimalTokenContract.methods
-          .tokenOfOwnerByIndex(account, i)
-          .call();
+      const response = await mintAnimalTokenContract.methods
+        .getAnimalTokens(account)
+        .call();
 
-        const animalType = await mintAnimalTokenContract.methods
-          .animalTypes(animalTokenId)
-          .call();
+      response.map((v: IMyAnimalCard) => {
+        tempAnimalCardArray.push({
+          animalTokenId: v.animalTokenId,
+          animalType: v.animalType,
+          animalPrice: v.animalPrice,
+        });
+      });
 
-        const animalPrice = await saleAnimalTokenContract.methods
-          .animalTokenPrices(animalTokenId)
-          .call();
-
-        tempAnimalCardArray.push({ animalTokenId, animalType, animalPrice });
-      }
+      console.log("tempAnimalCardArray : ", tempAnimalCardArray);
 
       setAnimalCardArray(tempAnimalCardArray);
     } catch (error) {
