@@ -4,7 +4,7 @@ const pool = require('../../Database/db.js').pool
 exports.list = async (req,res)=>{
     // console.log(req.body)
     const {idx} = req.body
-    const sql = `SELECT * from comment where idx=${idx}`
+    const sql = `SELECT * from comment where idx=${idx} ORDER BY comment_idx DESC`
     
     try{
         const [result] = await pool.execute(sql)
