@@ -1,30 +1,25 @@
 const path = require("path");
 const express = require("express");
-const app = express();
-// const router = express.Router()
+const router = express.Router()
 const imgController = require('./imgController.js')
 const multer = require("multer");
 const PORT = 4001;
 
-app.post('/img',imgController.img)
-
 const storage = multer.diskStorage({
-  destination: "./public/img/",
-  filename: function(req, file, cb) {
-    cb(null, "imgfile" + Date.now() + path.extname(file.originalname));
+  destination: "./../front/static/savedImg",
+  filename: function(req, file, done) {
+    const ext = path.extname(file.originalname)
+    const filename = path.basename(file.originalname,ext) + Date.now() + ext
+    done(null,filename)
   }
 });
 
 const upload = multer({
-    storage: storage,
-    limits: { fileSize: 1000000 }
-  });
-  
-  app.post("/upload", upload.single("img"), function(req, res, next) {
-    res.send({
-      fileName: req.file.filename
-    });
-    
-  });
+  storage: storage,
+  limits: { fileSize: 1000000 }
+});
 
-  module.exports = router
+router.post('/img',upload.single("img"),imgController.img)
+router.post('/userimg',imgController.userimg)
+
+module.exports = router

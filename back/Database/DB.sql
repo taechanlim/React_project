@@ -38,3 +38,14 @@ CREATE TABLE comment (
     FOREIGN KEY (idx) REFERENCES feed (idx),
     FOREIGN KEY (nickname) REFERENCES user (nickname)
 ); 
+
+CREATE TABLE userImg (
+    fieldname VARCHAR(50),
+    originalname VARCHAR(50),
+    mimetype VARCHAR(50),
+    destination VARCHAR(50),
+    filename VARCHAR(50),
+    path VARCHAR(50),
+    nickname VARCHAR(32) NOT NULL,
+    FOREIGN KEY (nickname) REFERENCES user (nickname)
+);
