@@ -38,7 +38,7 @@ const DefaultLayout = ({ children }) => {
             }
         }
     }
-    Auth()
+    // Auth()
     
 
     

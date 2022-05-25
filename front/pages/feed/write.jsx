@@ -7,7 +7,7 @@ import Router from 'next/router'
 
 const Write = () => {
     const [values,setValues] = useState({subject:'',content:''})
-    const multer = require('multer')
+    
     
     const handleChange = (e) => {
         
