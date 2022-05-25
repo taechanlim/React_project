@@ -2,7 +2,7 @@ const pool = require('../../Database/db.js').pool
 
 exports.img = async (req,res)=>{
     console.log('이미지 들어오냐?',req.FormData)
-    const {"img", content} = req.file
+    const {img, content} = req.file
     const [,payload,] = token.split('.')
     const decodingPayload = Buffer.from(payload,'base64').toString()
     const userid = JSON.parse(decodingPayload).userid

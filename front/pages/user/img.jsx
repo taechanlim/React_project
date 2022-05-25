@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const BASE_URL = "http://localhost:4001";
+const BASE_URL = "http://localhost:4001/api";
 
 export default function App() {
   const [content, setContent] = useState("");
@@ -19,9 +19,12 @@ export default function App() {
     formData.append("img", content); 
     axios.post("/user/img", formData).then(res => {
         const {fileName} = res.data;
-        console.log(fileName); //undefined
+        console.log({fileName});
+        console.log(content);
+        // console.log(fileName); 
         setUploadedImg({ fileName, filePath: `${BASE_URL}/img/${fileName}` });
         alert("The file is successfully uploaded");
+        
       })
       .catch(err => {
         console.error(err);
