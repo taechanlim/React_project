@@ -30,14 +30,14 @@ function Main(props) {
            
          </div>
          <div className="content2" style={{float:'right',marginRight:'10px',display:'inline-block',width:'78%',height:'700px',padding:'20px',textAlign:'center',fontWeight:'bold',fontSize:'15px',boxShadow:'2px 1px 5px 5px rgba(0,0,0,0.26)',backgroundColor:'#F0F3F4',borderRadius:'10px 10px 10px 10px',marginTop:'10px'}}>
-           
+            
            
            {/* 미니룸 들어가는 div */}
            <div style={{position:'absolute',zIndex:'1'}}><img src="/static/miniroom.png" style={{float:'left',width:'1300px',marginLeft:'6%'}}/></div>
            
            
            {/* NFT 들어가는 div */}
-           <div style={{transform:'rotate(-25deg)',borderRadius:'50%',position:'absolute',zIndex:'5',width:'19%',height:'38%',border:'1px solid gray',marginLeft:'10%',marginTop:'2%'}}></div>
+           <div style={{transform:'rotate(-25deg)',borderRadius:'50%',position:'absolute',zIndex:'5',width:'19%',height:'38%',border:'1px solid gray',marginLeft:'10%',marginTop:'2%'}}><img src="/static/따봉도치.png" style={{transform:'rotate(-25deg)',borderRadius:'50%',zIndex:'5',width:'100%',height:'100%'}}></img></div>
          </div>
       </>
   );
