@@ -1,12 +1,16 @@
 import React, { FC, useEffect, useState } from "react";
-import AnimalCard from "./AnimalCard";
-import { mintAnimalTokenContract, saleAnimalTokenAddress } from "./web3Config";
+import MyAnimalCard, { IMyAnimalCard } from "./MyAnimalCard";
+import {
+  mintAnimalTokenContract,
+  saleAnimalTokenAddress,
+  saleAnimalTokenContract,
+} from "./web3Config";
 
 interface MyAnimalProps {
   account: string;
 }
 const MyAnimal: FC<MyAnimalProps> = ({ account }) => {
-  const [animalCardArray, setAnimalCardArray] = useState<string[]>();
+  const [animalCardArray, setAnimalCardArray] = useState<IMyAnimalCard[]>();
   const [saleStatus, setSaleStatus] = useState<boolean>(false);
   const getAnimalTokens = async () => {
     try {
@@ -25,7 +29,11 @@ const MyAnimal: FC<MyAnimalProps> = ({ account }) => {
           .animalTypes(animalTokenId)
           .call();
 
-        tempAnimalCardArray.push(animalType);
+        const animalPrice = await saleAnimalTokenContract.methods
+          .animalTokenPrices(animalTokenId)
+          .call();
+
+        tempAnimalCardArray.push({ animalTokenId, animalType, animalPrice });
       }
 
       setAnimalCardArray(tempAnimalCardArray);
@@ -84,7 +92,16 @@ const MyAnimal: FC<MyAnimalProps> = ({ account }) => {
       <div>
         {animalCardArray &&
           animalCardArray.map((v, i) => {
-            return <AnimalCard key={i} animalType={v} />;
+            return (
+              <MyAnimalCard
+                key={i}
+                animalTokenId={v.animalTokenId}
+                animalType={v.animalType}
+                animalPrice={v.animalPrice}
+                saleStatus={saleStatus}
+                account={account}
+              />
+            );
           })}
       </div>
     </>
