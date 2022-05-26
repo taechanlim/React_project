@@ -64,7 +64,7 @@ const SaleAnimalCard: FC<SaleAnimalCardProps> = ({
       <div style={{textAlign:'center',marginLeft:'-7.5%'}}>
         <ul style={{listStyle:'none'}}>
         <li><span style={{fontWeight:'bold',fontSize:'30px'}}>{web3.utils.fromWei(animalPrice)} ETH</span></li>
-        <li><button disabled={isBuyable} onClick={onClickBuy} style={{fontWeight:'bold',fontSize:'20px',height:'40px',width:'400px',backgroundColor:'red',color:'white'}}>구매하기!</button></li>
+        <li><button disabled={isBuyable} onClick={onClickBuy} style={{fontWeight:'bold',fontSize:'20px',height:'40px',width:'400px',backgroundColor:'red',color:'white',borderRadius:'10px 10px'}}>구매하기!</button></li>
 
         </ul>
       </div>
