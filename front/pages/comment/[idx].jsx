@@ -121,11 +121,11 @@ const commentList = (props) => {
                     <div key={info.comment_idx} style={{backgroundColor:'#ffffff',width:'30%',margin:'0 auto',height:'50%',border:'1px solid lightgray',marginTop:'20px',borderRadius:'10px 10px 10px 10px'}}>
 
                         
-                        <div style={{fontSize:'18px',fontWeight:'bold'}}>{info.nickname}</div>
-                        <div style={{fontSize:'18px'}}>{info.comment}</div>
-                        <div style={{fontSize:'18px'}}>{info.date}</div>
-                        <button onClick={()=>deleteBtn(info.comment_idx) } style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>삭제</button>
-                        <Link href={`/comment/commentUpdate?feed=${info.idx}=comment=${info.comment_idx}`}><button onClick={()=>updateBtn(info.comment_idx)}style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>수정</button></Link>
+                        <div style={{fontSize:'35px',fontWeight:'bold'}}>{info.nickname}</div>
+                        <div style={{fontSize:'25px'}}>{info.comment}</div>
+                        <div style={{fontSize:'15px'}}>{info.date}</div>
+                        <button onClick={()=>deleteBtn(info.comment_idx) } style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px',width:'100px',color:'red'}}>삭제</button>
+                        <Link href={`/comment/commentUpdate?feed=${info.idx}=comment=${info.comment_idx}`}><button onClick={()=>updateBtn(info.comment_idx)}style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px',width:'100px'}}>수정</button></Link>
                         {/* 좋아요 구현하기 */}
 
                         {/* <button onClick={()=>deleteBtn(info.idx)}>삭제</button>
