@@ -2,10 +2,8 @@ import Link from 'next/link'
 import { Menu, Row, Col } from 'antd'
 import { InfoCircleOutlined, UsergroupAddOutlined, ShopOutlined ,InstagramOutlined,DollarCircleOutlined,GithubOutlined,PlusOutlined,LoadingOutlined} from '@ant-design/icons'
 import Footer from './Footer'
-//import styles from 'layout.module.css'
 import {useState,useEffect} from 'react'
 import Router,{ useRouter } from 'next/router';
-
 
 
 

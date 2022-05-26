@@ -61,20 +61,22 @@ const Write = () => {
     return(
         <>
         <div style={{width:'27%',height:'50%',margin:'0 auto',border:'1px solid lightgray',marginTop:'55px',borderRadius:'10px 10px 10px 10px'}}>
-            <h3 style={{fontWeight:'bold'}}>피드 쓰기</h3>
+            <h3 style={{fontWeight:'bold',marginLeft:'41%',fontSize:'30px'}}>피드 쓰기</h3>
             <form onSubmit={handleSubmit}>
                 <Space direction="vertical">
                     <Input
                     name="subject" onChange={handleChange}
                     placeholder="input subject"
+                    style={{width:'200%',marginLeft:'50%'}}
                     />
                     <Input
                     name="content" onChange={handleChange}
                     placeholder="input content"
+                    style={{width:'200%',height:'200px',marginLeft:'50%'}}
                     />
                 </Space>
-                <input type="file" onChange={onChange}/>
-                <input type='submit' value='작성' style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'32px',marginLeft:'120px'}}></input>
+                <input type="file" onChange={onChange} style={{marginLeft:'30%',display:'block',marginTop:'20px',marginBottom:'50px'}}/>
+                <input type='submit' value='작성' style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'32px',marginLeft:'30%'}}></input>
             </form>
 
         </div>

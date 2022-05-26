@@ -89,31 +89,31 @@ const Register = () => {
                         <Input
                         name="userid" onChange={onNameHandler}
                         placeholder="input userid"
-                        style={{width:'149%'}}
+                        style={{width:'143%'}}
                         />
                         <Input
                         name="nickname" onChange={onNickname}
                         placeholder="input nickname"
-                        style={{width:'149%'}}
+                        style={{width:'143%'}}
                         />
                         <Input.Password
                         name="userpw" onChange={onPasswordHandler}onPhoneHandler
                         placeholder="input password"
-                        style={{width:'149%'}}
+                        style={{width:'143%'}}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
                         <Input.Password
                         name="userpw" onChange={onConfirmPasswordHandler}
                         placeholder="input password"
-                        style={{width:'149%'}}
+                        style={{width:'143%'}}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
                         <Input
                         name="phonenumber" onChange={onPhoneHandler}
                         placeholder="input phone number"
-                        style={{width:'149%'}}
+                        style={{width:'143%'}}
                         />
-                        <input type="file" onChange={onChange}/>
+                        프로필 이미지<input type="file" onChange={onChange} style={{marginLeft:'40%'}}/>
                     </Space>
                 <div><button type="submit"style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'100%',height:'80px',marginTop:'40px'}} >계정 생성</button></div>
             </form>
