@@ -3,7 +3,7 @@ const pool = require('../../Database/db.js').pool
 
 exports.list = async (req,res)=>{
     
-    const sql = `SELECT subject,content,DATE_FORMAT(date,'%Y.%m.%d %h:%m') as date,nickname,filename from feed ORDER BY idx DESC`
+    const sql = `SELECT idx,subject,content,DATE_FORMAT(date,'%Y.%m.%d %h:%m') as date,nickname,filename from feed ORDER BY idx DESC`
     
     try{
         const [result] = await pool.execute(sql)
@@ -70,7 +70,7 @@ exports.list2 = async (req,res)=>{
 exports.delete = async (req,res)=>{
     
     const {idx} = req.body
-    
+    console.log(idx)
     const sql = `DELETE from feed WHERE idx=${idx}`
     const sql2 = `set foreign_key_checks=0`
     const sql3 = `set foreign_key_checks=1`
