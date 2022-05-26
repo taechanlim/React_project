@@ -76,7 +76,9 @@ const Update = ()=>{
     }
     return(
         <>
+
          <div class="loginUpdate" style={{borderRadius:'10px 10px 10px 10px',width:'15%',height:'50%',border:'1px solid lightgray',marginLeft:'38%',marginTop:'55px',background:'#ffffff'}}>
+
             <form onSubmit={onSubmit}>
                 
                 <Space direction="vertical">
@@ -85,22 +87,28 @@ const Update = ()=>{
                         name="userpw" onChange={onPasswordHandler}
                         placeholder="input password"
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+
                         style={{width:'106.5%',height:'50%',marginTop:'10px'}}
+
                         />
                         <Input
                         name="phonenumber" onChange={onPhoneHandler}
                         placeholder="input phonenumber"
+
                         style={{width:'106.5%',height:'35px',marginTop:'10px',marginBottom:'10px'}}
                         />
                         <h2 style={{color:'pink'}}>프로필 이미지</h2><input type="file" onChange={onChange} style={{marginLeft:'30%'}}/>
+
                     </Space>
                 {/* <div><input name="nickname" type="text" placeholder="닉네임" value={nickname} onChange={onNickname}/></div>
                 <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
                 <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div> */}
+
                 <div><button type="submit" style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'285px',height:'80px',marginTop:'30px',color:'blue'}}>계정 업데이트</button></div>
             </form>
             <form onSubmit={onDelete}>
                 <div ><button type="submit" style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'285px',height:'80px',marginTop:'30px',color:'red'}}>계정 탈퇴</button></div>
+
             </form>
         </div>
         </>

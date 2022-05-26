@@ -58,13 +58,15 @@ const SaleAnimalCard: FC<SaleAnimalCardProps> = ({
   }, []);
 
   return (
-    <div>
+    
+    <div style={{float:'left',width:'26.6%',height:'600px',border:'3px solid orange',borderRadius:'10px 10px',backgroundColor:'#fafafa',marginLeft:'15.5%',marginBottom:'5%'}}>
       <AnimalCard animalType={animalType} />
-      <div>
-        <span>{web3.utils.fromWei(animalPrice)} Matic</span>
-        <button disabled={isBuyable} onClick={onClickBuy}>
-          Buy
-        </button>
+      <div style={{textAlign:'center',marginLeft:'-7.5%'}}>
+        <ul style={{listStyle:'none'}}>
+        <li><span style={{fontWeight:'bold',fontSize:'30px'}}>{web3.utils.fromWei(animalPrice)} ETH</span></li>
+        <li><button disabled={isBuyable} onClick={onClickBuy} style={{fontWeight:'bold',fontSize:'20px',height:'40px',width:'400px',backgroundColor:'red',color:'white'}}>구매하기!</button></li>
+
+        </ul>
       </div>
     </div>
   );

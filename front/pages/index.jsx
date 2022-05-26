@@ -92,7 +92,7 @@ const Index = (props) => {
                           minWidth:550,
                           minHeight:550,
                           maxWidth:550,
-                          maxHeight:550
+                          maxHeight:550,
                         }} cover={<img src={`/static/feedImg/${info.filename}`} style={{width:'550px',height:'550px'}}/>}/>
                         </Card>
                     </div>

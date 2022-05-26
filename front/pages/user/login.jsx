@@ -74,6 +74,7 @@ const Login = () => {
             <form onSubmit={handleSubmit} >
                 <ul style={{listStyle:'none'}}>
                     {isLogin 
+
                     ? <> <li><button  onClick={logout} style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',marginBottom:'30px',marginTop:'15px',color:'red',fontSize:'20px'}}>로그아웃</button></li> 
                     
                     <Link href='/user/update' ><div style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',paddingLeft:'18%',paddingTop:'10%',color:'blue',fontSize:'20px'}}>프로필 수정/탈퇴 </div></Link>
