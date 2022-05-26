@@ -73,17 +73,17 @@ const Index = (props) => {
                       >
                         <div />
                         <div />
-                        <div style={{fontWeight:'bold',fontSize:'30px'}}>{info.nickname}</div>
-                        <div style={{fontSize:'18px',marginTop:'10px'}}>{info.content}</div> 
-                        <div style={{fontSize:'18px',marginTop:'10px'}}>{info.date}</div> 
+                        <div style={{fontWeight:'bold',fontSize:'40px'}}>{info.nickname}</div>
+                        <div style={{fontSize:'25px',marginTop:'10px'}}>{info.content}</div> 
+                        <div style={{fontSize:'15px',marginTop:'10px'}}>{info.date}</div> 
                         
-                        {isCookie ? <button onClick={()=>deleteBtn(info.idx)} style={{width:'100px',background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>삭제</button>
+                        {isCookie ? <button onClick={()=>deleteBtn(info.idx)} style={{width:'100px',background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px',color:'red'}}>삭제</button>
                                   : <div />        
                         }
                         {isCookie ? <Link href={`/feed/update?${info.idx}`}><button onClick={()=>updateBtn(info.idx)} style={{width:'100px',background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px'}}>수정</button></Link>
                                   : <div />
                         }
-                        <Link href={`/comment/${info.idx}`}><button style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',width:'100px'}}>댓글보기</button></Link>
+                        <Link href={`/comment/${info.idx}`}><button style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',width:'100px',color:'blue'}}>댓글보기</button></Link>
                         <Card hoverable
                         style={{
                           width: 550,
