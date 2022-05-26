@@ -47,6 +47,11 @@ const SaleAnimal: FC<SaleAnimalProps> = ({ account }) => {
 
   return (
     <div>
+      <div style={{position:'absolute'}}>
+      <img src="../../static/market.jpg" style={{position:'relative',width:'100%',height:'3000px',zIndex:"0"}}></img>
+      </div>
+      <div style={{zIndex:'3',position:'relative'}}>
+      
       {saleAnimalCardArray &&
         saleAnimalCardArray.map((v, i) => {
           return (
@@ -60,6 +65,7 @@ const SaleAnimal: FC<SaleAnimalProps> = ({ account }) => {
             />
           );
         })}
+        </div>
     </div>
   );
 };

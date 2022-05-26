@@ -21,15 +21,13 @@ function Main(props) {
       <div className="header" style={{padding:'20px',textAlign:'center',fontWeight:'bold',fontSize:'20px',boxShadow:'2px 1px 5px 0px rgba(0,0,0,0.26)',backgroundColor:'#F0F3F4'}}>Welcome To {userdata.nickname}'S MiniHomepage</div>
         
          <div className="content"  style={{float:'left',display:'inline-block',width:'20%',height:'700px',padding:'20px',textAlign:'center',fontWeight:'bold',fontSize:'15px',boxShadow:'2px 1px 5px 5px rgba(0,0,0,0.26)',backgroundColor:'#F0F3F4',borderRadius:'0px 10px 10px 0px',marginTop:'10px'}}>
-           <p>닉네임:</p>
-           <p>{userdata.nickname}</p>
-           <p>phone:</p>
-           <p>{userdata.phonenumber}</p>
-           <p>지갑주소:</p>
-           <p>{userdata.wallet}</p>
+           <p style={{fontSize:'30px'}}>닉네임: {userdata.nickname}</p>
+           <p style={{fontSize:'30px'}}>전화번호: {userdata.phonenumber}</p>
+           <p style={{fontSize:'30px'}}>지갑주소:</p>
+           <p style={{fontSize:'14px'}}>{userdata.wallet}</p>
 
            {/* 영광적인 프로필 이미지 */}
-           <div>{userimg ? <img src={`../static/savedImg/${userimg.filename}`} style={{marginTop:'150px',width:'300px',height:'250px'}} />
+           <div>{userimg ? <img src={`../static/savedImg/${userimg.filename}`} style={{marginTop:'110px',width:'300px',height:'250px',borderRadius:'50%'}} />
                          : <div style={{marginTop:'150px',width:'300px',height:'250px',border:'1px solid lightgray',borderRadius:'50%'}}><p style={{marginTop:'40%'}}>프로필 이미지가 없습니다</p></div>}
            </div>
           
@@ -38,7 +36,7 @@ function Main(props) {
             
            
            {/* 미니룸 들어가는 div */}
-           <div style={{position:'absolute',zIndex:'1'}}><img src="/static/miniroom.png" style={{float:'left',width:'1300px',marginLeft:'6%'}}/></div>
+           <div style={{position:'absolute',zIndex:'1'}}><img src="/static/miniroom.png" style={{float:'left',width:'1300px',marginLeft:'6%', borderRadius:'20px 20px',border:'3px solid lightgray'}}/></div>
            
            
            {/* NFT 들어가는 div */}

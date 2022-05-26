@@ -76,7 +76,7 @@ const Update = ()=>{
     }
     return(
         <>
-         <div class="loginUpdate" style={{borderRadius:'10px 10px 10px 10px',width:'10.5%',height:'50%',border:'1px solid lightgray',marginLeft:'44%',marginTop:'55px',background:'#ffffff'}}>
+         <div class="loginUpdate" style={{borderRadius:'10px 10px 10px 10px',width:'20%',height:'50%',border:'1px solid lightgray',margin:'0 auto',background:'#ffffff'}}>
             <form onSubmit={onSubmit}>
                 
                 <Space direction="vertical">
@@ -85,20 +85,22 @@ const Update = ()=>{
                         name="userpw" onChange={onPasswordHandler}
                         placeholder="input password"
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
+                        style={{marginLeft:'20%',backgroundColor:'#fafafa',marginTop:'20px'}}
                         />
                         <Input
                         name="phonenumber" onChange={onPhoneHandler}
                         placeholder="input phonenumber"
+                        style={{marginLeft:'20%',backgroundColor:'#fafafa'}}
                         />
-                        프로필 이미지<input type="file" onChange={onChange} style={{marginLeft:'40%'}}/>
+                        <p style={{marginLeft:'60%'}}>프로필 이미지</p><input type="file" onChange={onChange} style={{marginLeft:'40%'}}/>
                     </Space>
                 {/* <div><input name="nickname" type="text" placeholder="닉네임" value={nickname} onChange={onNickname}/></div>
                 <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>
                 <div><input name="phonenumber" type="text" placeholder="핸드폰" value={phonenumber} onChange={onPhoneHandler}/></div> */}
-                <div><button type="submit" style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',marginTop:'30px'}}>계정 업데이트</button></div>
+                <div><button type="submit" style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',marginTop:'30px',marginLeft:'25%'}}>계정 업데이트</button></div>
             </form>
             <form onSubmit={onDelete}>
-                <div ><button type="submit" style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',marginTop:'30px'}}>계정 탈퇴</button></div>
+                <div ><button type="submit" style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',marginTop:'30px',marginLeft:'25%',marginBottom:'20px'}}>계정 탈퇴</button></div>
             </form>
         </div>
         </>
