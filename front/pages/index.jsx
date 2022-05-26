@@ -73,9 +73,9 @@ const Index = (props) => {
                       >
                         <div />
                         <div />
-                        <div style={{fontWeight:'bold',fontSize:'30px'}}>{info.nickname}</div>
-                        <div style={{fontSize:'18px',marginTop:'10px'}}>{info.content}</div> 
-                        <div style={{fontSize:'18px',marginTop:'10px'}}>{info.date}</div> 
+                        <div style={{fontWeight:'bold',fontSize:'40px'}}>{info.nickname}</div>
+                        <div style={{fontSize:'25px',marginTop:'10px'}}>{info.content}</div> 
+                        <div style={{fontSize:'15px',marginTop:'10px'}}>{info.date}</div> 
                         
                         {isCookie ? <button onClick={()=>deleteBtn(info.idx)} style={{width:'100px',background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px',color:'red'}}>삭제</button>
                                   : <div />        
