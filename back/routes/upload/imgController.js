@@ -85,3 +85,62 @@ exports.userimg = async (req,res)=>{
         res.json(response)
         }
 }
+
+
+exports.userimgupdate = async (req,res)=>{
+    const {fieldname,originalname,mimetype,filename,path,destination} = req.file
+    const {token} = req.body
+    const [,payload,] = token.split('.')
+    const decodingPayload = Buffer.from(payload,'base64').toString()
+    const nickname = JSON.parse(decodingPayload).nickname
+    
+    const sql = `DELETE FROM userImg where nickname='${nickname}'`
+    const sql2 = `INSERT INTO userImg(
+        fieldname,
+        originalname,
+        mimetype,
+        destination,
+        filename,
+        path,
+        nickname
+    ) values(
+        ?,?,?,?,?,?,?
+    )`
+    
+    const prepare = [fieldname,
+        originalname,
+        mimetype,
+        destination,
+        filename,
+        path,
+        nickname]
+    
+    try{
+        
+        const [result] = await pool.execute(sql)
+                         await pool.execute(sql2,prepare)
+        const response = {
+            result:{
+                result,
+                row:result.affectedRows,
+                id:result.insertId
+            },
+            errno:0,
+        }
+    
+        res.json(response)
+        
+    
+        }catch(e){
+        console.log(e.message)
+        console.log(e)
+        const response = {
+            result:{
+                row:0,
+                id:0
+            },
+            errno:1,
+        }
+        res.json(response)
+        }
+}

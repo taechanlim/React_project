@@ -21,5 +21,6 @@ const upload = multer({
 
 router.post('/img',upload.single("img"),imgController.img)
 router.post('/userimg',imgController.userimg)
+router.post('/userimgupdate',upload.single("img"),imgController.userimgupdate)
 
 module.exports = router
