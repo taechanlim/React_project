@@ -30,7 +30,7 @@ function Main(props) {
 
            {/* 영광적인 프로필 이미지 */}
            <div>{userimg ? <img src={`../static/savedImg/${userimg.filename}`} style={{marginTop:'150px',width:'300px',height:'250px'}} />
-                         : <div style={{marginTop:'150px',width:'300px',height:'250px'}}>프로필 이미지가 없습니다</div>}
+                         : <div style={{marginTop:'150px',width:'300px',height:'250px',border:'1px solid lightgray',borderRadius:'50%'}}><p style={{marginTop:'40%'}}>프로필 이미지가 없습니다</p></div>}
            </div>
           
          </div>
@@ -42,7 +42,7 @@ function Main(props) {
            
            
            {/* NFT 들어가는 div */}
-           <div style={{transform:'rotate(-25deg)',borderRadius:'50%',position:'absolute',zIndex:'5',width:'19%',height:'38%',border:'1px solid gray',marginLeft:'10%',marginTop:'2%'}}><img src="/static/따봉도치.png" style={{transform:'rotate(-25deg)',borderRadius:'50%',zIndex:'5',width:'100%',height:'100%'}}></img></div>
+           <div style={{transform:'rotate(-25deg)',borderRadius:'50%',position:'absolute',zIndex:'5',width:'18%',height:'37%',border:'1px solid gray',marginLeft:'10%',marginTop:'2%'}}><img src="/static/따봉도치.png" style={{transform:'rotate(-25deg)',borderRadius:'50%',zIndex:'5',width:'100%',height:'100%'}}></img></div>
          </div>
       </>
   );
