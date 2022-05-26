@@ -65,7 +65,10 @@ const DefaultLayout = ({ children }) => {
                         {isCookie ? <Menu.Item icon ={<InfoCircleOutlined />}><Link href="/user/login">로그아웃/프로필수정</Link></Menu.Item>
                                   : <Menu.Item icon ={<InfoCircleOutlined/>}><Link href="/user/login">로그인</Link></Menu.Item>
                         }
-                        <Menu.Item icon ={<UsergroupAddOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
+                        {isCookie ? <></>
+                                  : <Menu.Item icon ={<UsergroupAddOutlined />}><Link href="/user/register">회원가입</Link></Menu.Item>
+                        }
+                        
                         <Menu.Item onClick={homepage} icon ={<ShopOutlined />}>미니홈피</Menu.Item>
                         <Menu.Item icon={<PlusOutlined />}><Link href="/feed/write">피드작성</Link></Menu.Item>
                         <Menu.Item icon={<DollarCircleOutlined />}><Link href="/market/marketApp">NFT MARKET</Link></Menu.Item>
