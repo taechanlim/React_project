@@ -73,26 +73,26 @@ const Index = (props) => {
                       >
                         <div />
                         <div />
-                        <div style={{fontWeight:'bold'}}>{info.nickname}</div>
-                        <div >{info.content}</div>
+                        <div style={{fontWeight:'bold',fontSize:'30px'}}>{info.nickname}</div>
+                        <div style={{fontSize:'18px',marginTop:'10px'}}>{info.content}</div> 
                         
-                        
-                        {isCookie ? <button onClick={()=>deleteBtn(info.idx)} style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>삭제</button>
+                        {isCookie ? <button onClick={()=>deleteBtn(info.idx)} style={{width:'100px',background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>삭제</button>
                                   : <div />        
                         }
-                        {isCookie ? <Link href={`/feed/update?${info.idx}`}><button onClick={()=>updateBtn(info.idx)} style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px'}}>수정</button></Link>
+                        {isCookie ? <Link href={`/feed/update?${info.idx}`}><button onClick={()=>updateBtn(info.idx)} style={{width:'100px',background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px'}}>수정</button></Link>
                                   : <div />
                         }
-                        <Link href={`/comment/${info.idx}`}><button style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px'}}>댓글보기</button></Link>
+                        <Link href={`/comment/${info.idx}`}><button style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',width:'100px'}}>댓글보기</button></Link>
                         <Card hoverable
                         style={{
                           width: 550,
                           marginTop:50,
+                          height:550,
                           minWidth:550,
-                          minHeight:685,
+                          minHeight:550,
                           maxWidth:550,
-                          maxHeight:685
-                        }} cover={<img src={`/static/feedImg/${info.filename}`} />}/>
+                          maxHeight:550
+                        }} cover={<img src={`/static/feedImg/${info.filename}`} style={{width:'550px',height:'550px'}}/>}/>
                         </Card>
                     </div>
                     </>

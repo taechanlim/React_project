@@ -63,30 +63,33 @@ const commentList = (props) => {
                         {/* <Link href={`/user/main/reservation/detail/${info.idx}`}>
                         <input type="button" value={"button" + info.idx} alt="" />
                         </Link> */}
-                        <Card
+                  <Card
                         hoverable
                         style={{
                           width: 600,
                           marginTop:30,
                           border:'1px solid lightgray',
-                          borderRadius:'10px 10px 10px 10px'
+                          borderRadius:'10px 10px',
+                          marginBottom:50
                         }}
                         
                       >
                         <div />
                         <div />
-                        <div style={{fontWeight:'bold'}}>{info.nickname}</div>
-                        <div >{info.content}</div>
+                        <div style={{fontWeight:'bold',fontSize:'30px'}}>{info.nickname}</div>
+                        <div style={{fontSize:'18px',marginTop:'10px'}}>{info.content}</div> 
 
                         <Card hoverable
                         style={{
                           width: 550,
                           marginTop:50,
+                          height:550,
                           minWidth:550,
-                          minHeight:685,
+                          minHeight:550,
                           maxWidth:550,
-                          maxHeight:685
-                        }} cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}/>
+                          maxHeight:550,
+                          
+                        }} cover={<img src={`/static/feedImg/${info.filename}`} style={{width:'550px',height:'550px'}}/>}/>
                         </Card>
                     </div>
                     </>
@@ -103,6 +106,7 @@ const commentList = (props) => {
                         <Input
                         name="comment" onChange={handleChange}
                         placeholder="input comment"
+                        style={{width:'150%'}}
                         />
                     </Space>
                     <input type='submit' value='작성' style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'32px',marginLeft:'50px'}}></input>
@@ -117,9 +121,9 @@ const commentList = (props) => {
                     <div key={info.comment_idx} style={{backgroundColor:'#ffffff',width:'30%',margin:'0 auto',height:'50%',border:'1px solid lightgray',marginTop:'20px',borderRadius:'10px 10px 10px 10px'}}>
 
                         
-                        <div style={{fontWeight:'bold'}}>{info.nickname}</div>
-                        <div>{info.comment}</div>
-                        <div>{info.date}</div>
+                        <div style={{fontSize:'18px',fontWeight:'bold'}}>{info.nickname}</div>
+                        <div style={{fontSize:'18px'}}>{info.comment}</div>
+                        <div style={{fontSize:'18px'}}>{info.date}</div>
                         <button onClick={()=>deleteBtn(info.comment_idx) } style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>삭제</button>
                         <Link href={`/comment/commentUpdate?feed=${info.idx}=comment=${info.comment_idx}`}><button onClick={()=>updateBtn(info.comment_idx)}style={{background:'#FFFFFF', border:'1.5px solid lightgray',marginRight:'10px',marginTop:'20px'}}>수정</button></Link>
                         {/* 좋아요 구현하기 */}

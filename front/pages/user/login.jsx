@@ -74,7 +74,7 @@ const Login = () => {
             <form onSubmit={handleSubmit} >
                 <ul style={{listStyle:'none'}}>
                     {isLogin 
-                    ? <> <li><button  onClick={logout} style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px'}}>로그아웃</button></li> 
+                    ? <> <li><button  onClick={logout} style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',marginBottom:'30px',marginTop:'15px'}}>로그아웃</button></li> 
                     
                     <Link href='/user/update' ><div style={{background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px',paddingLeft:'18%',paddingTop:'10%'}}>프로필 수정/탈퇴 </div></Link>
                    
@@ -84,12 +84,12 @@ const Login = () => {
                         <Input
                         name="userid" onChange={handleChange}
                         placeholder="input userid"
-                        style={{marginLeft:'-25px',width:'200px'}}
+                        style={{marginLeft:'-25px',width:'260px',marginTop:'15px'}}
                         />
                         <Input.Password
                         name="userpw" onChange={handleChange}
                         placeholder="input password"
-                        style={{marginLeft:'-25px',width:'200px'}}
+                        style={{marginLeft:'-25px',width:'260px'}}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
                     </Space>
@@ -101,7 +101,7 @@ const Login = () => {
                         <label>패스워드</label>
                         <input type="password" name="userpw" onChange={handleChange} />
                     </li> */}
-                    <li><input type="submit" value="로그인" disabled={submit}  style={{marginLeft:'-25px',marginTop:'20px',background:'#FFFFFF', border:'1.5px solid lightgray',width:'200px',height:'80px'}}/></li> 
+                    <li><input type="submit" value="로그인" disabled={submit}  style={{marginLeft:'-25px',marginTop:'20px',background:'#FFFFFF', border:'1.5px solid lightgray',width:'260px',height:'80px'}}/></li> 
                     </>}
                     
                 </ul>
