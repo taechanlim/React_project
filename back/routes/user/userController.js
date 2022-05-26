@@ -147,7 +147,7 @@ exports.delete = async (req,res)=>{
     const [,payload,] = token.split('.')
     const decodingPayload = Buffer.from(payload,'base64').toString()
     const userid = JSON.parse(decodingPayload).userid
-    console.log(req.body);
+    console.log(userid);
     const sql = `DELETE from user where userid = '${userid}'`
     
     const prepare = [token]
