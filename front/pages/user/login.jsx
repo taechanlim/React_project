@@ -29,7 +29,8 @@ const Login = () => {
 
     const logout = async () => {
         removeCookie(COOKIE_KEY, { path: '/' });
-        Router.push('/')
+        alert('로그아웃')
+        location.href='/'
     }
     const body = {
         userid:values.userid,
@@ -55,7 +56,7 @@ const Login = () => {
                 alert(`
                     아이디 : ${values.userid}
                 `)
-                Router.push('/')
+                location.href='/'
             }else{
                 alert('로그인실패')
             }
