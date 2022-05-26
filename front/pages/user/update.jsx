@@ -6,30 +6,50 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import Router from 'next/router'
 
 const Update = ()=>{
-    const [nickname,setNickname] = useState('')
+    
     const [userpw,setUserpw] = useState('')
     const [phonenumber,setPhonenumber] = useState('')
+    const [content, setContent] = useState("");
+    const [uploadedImg, setUploadedImg] = useState({
+        fileName: "",
+        fillPath: ""
+      });
+
     
-    const onNickname = (event) =>{
-        setNickname(event.target.value)
-    }
     const onPasswordHandler = (event) =>{
         setUserpw(event.target.value)
     }
     const onPhoneHandler = (event)=>{
         setPhonenumber(event.target.value)
     }
+    const onChange = e => {
+        setContent(e.target.files[0]);
+    };
 
 
     const token = document.cookie
-    const body = {nickname,userpw,phonenumber,token}
+    const body = {userpw,phonenumber,token}
 
     const onSubmit = async (event) =>{
         event.preventDefault()
-        if(nickname=='' || userpw =='' || phonenumber==''){
+        if(userpw =='' || phonenumber=='' || !content ){
             alert('빈칸은 있을 수 없다.')
         }else{
             const result = await axios.post('http://localhost:4001/api/user/update',body) 
+            if(content){
+                const formData = new FormData();
+                formData.append("img", content); 
+                formData.append("token",token)
+                axios.post("http://localhost:4001/api/upload/userimgupdate",formData).then(res => {
+                    
+                    // console.log(fileName); 
+                    setUploadedImg({ fileName, filePath: `${BASE_URL}/img/${fileName}` });
+                    alert("The file is successfully uploaded");
+                    
+                }).catch(err => {
+                    console.error(err);
+                });
+            }
             console.log(result.data.errno)
             if(result.data.errno === 0){
                 alert('계정의 수정이 완료')
@@ -60,10 +80,7 @@ const Update = ()=>{
             <form onSubmit={onSubmit}>
                 
                 <Space direction="vertical">
-                        <Input
-                        name="nickname" onChange={onNickname}
-                        placeholder="input nickname"
-                        />
+                        
                         <Input.Password
                         name="userpw" onChange={onPasswordHandler}
                         placeholder="input password"
@@ -73,6 +90,7 @@ const Update = ()=>{
                         name="phonenumber" onChange={onPhoneHandler}
                         placeholder="input phonenumber"
                         />
+                        프로필 이미지<input type="file" onChange={onChange} style={{marginLeft:'40%'}}/>
                     </Space>
                 {/* <div><input name="nickname" type="text" placeholder="닉네임" value={nickname} onChange={onNickname}/></div>
                 <div><input name="userpw" type="password" placeholder="비밀번호" value={userpw} onChange={onPasswordHandler}/></div>

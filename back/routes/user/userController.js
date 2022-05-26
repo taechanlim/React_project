@@ -5,7 +5,7 @@ const {alertMove} = require('../../utils/alert.js')
 
 exports.register = async (req,res)=>{
     const {userid,userpw,nickname,phonenumber} = req.body
-    // console.log(req.body)
+    console.log(req.body)
         
     const sql = `INSERT INTO user(
             userid,
@@ -49,7 +49,7 @@ exports.register = async (req,res)=>{
 
 exports.login = async (req,res)=>{
     const {userid,userpw} = req.body
-    // console.log(userid,userpw)
+    console.log(userid,userpw)
     const sql = `SELECT userid,nickname,phonenumber,active FROM user WHERE userid=? and userpw=? and active=1`
     const prepare = [userid,userpw]
 
@@ -104,16 +104,16 @@ exports.info = async (req,res)=>{
 }
 
 exports.update = async (req,res)=>{
-    const {token,userpw,nickname,phonenumber} = req.body
+    const {token,userpw,phonenumber} = req.body
     const [,payload,] = token.split('.')
     const decodingPayload = Buffer.from(payload,'base64').toString()
     const userid = JSON.parse(decodingPayload).userid
-    
+    console.log(userid)
 
-    const sql = `UPDATE user SET userpw = ?, nickname=? , phonenumber=? WHERE userid = '${userid}'`
+    const sql = `UPDATE user SET userpw = ?, phonenumber=? WHERE userid = '${userid}'`
     
     
-    const prepare = [userpw,nickname,phonenumber]
+    const prepare = [userpw,phonenumber]
     try{
         const [result] = await pool.execute(sql,prepare)
             
@@ -147,7 +147,7 @@ exports.delete = async (req,res)=>{
     const [,payload,] = token.split('.')
     const decodingPayload = Buffer.from(payload,'base64').toString()
     const userid = JSON.parse(decodingPayload).userid
-    // console.log(req.body);
+    console.log(req.body);
     const sql = `DELETE from user where userid = '${userid}'`
     
     const prepare = [token]
