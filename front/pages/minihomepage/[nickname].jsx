@@ -29,7 +29,9 @@ function Main(props) {
            <p>{userdata.wallet}</p>
 
            {/* 영광적인 프로필 이미지 */}
-           <div><img src={`../static/savedImg/${userimg.filename}`} style={{marginTop:'150px',width:'300px',height:'250px'}} /></div>
+           <div>{userimg ? <img src={`../static/savedImg/${userimg.filename}`} style={{marginTop:'150px',width:'300px',height:'250px'}} />
+                         : <div style={{marginTop:'150px',width:'300px',height:'250px'}}>프로필 이미지가 없습니다</div>}
+           </div>
           
          </div>
          <div className="content2" style={{float:'right',marginRight:'10px',display:'inline-block',width:'78%',height:'700px',padding:'20px',textAlign:'center',fontWeight:'bold',fontSize:'15px',boxShadow:'2px 1px 5px 5px rgba(0,0,0,0.26)',backgroundColor:'#F0F3F4',borderRadius:'10px 10px 10px 10px',marginTop:'10px'}}>
