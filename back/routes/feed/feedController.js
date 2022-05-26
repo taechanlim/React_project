@@ -104,15 +104,16 @@ exports.delete = async (req,res)=>{
 }
 
 exports.write = async (req,res)=>{
-    
-    const {values,token} = req.body
-    const subject = values.subject
-    const content = values.content
+    console.log(req.body.subject);
+    const {filename} = req.file
+    const {subject} = req.body
+    const {content} = req.body
+    const {token} = req.body
     const [,payload,] = token.split('.')
     const decodingPayload = Buffer.from(payload,'base64').toString()
     const nickname = JSON.parse(decodingPayload).nickname
     
-    const sql = `INSERT INTO feed(subject,content,nickname) values('${subject}','${content}','${nickname}')`
+    const sql = `INSERT INTO feed(subject,content,nickname,filename) values('${subject}','${content}','${nickname}','${filename}')`
     
     try{
         const [result] = await pool.execute(sql)

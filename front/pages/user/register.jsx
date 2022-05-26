@@ -41,9 +41,6 @@ const Register = () => {
 
     const onSubmit = async (event) =>{
         event.preventDefault()
-        
-    
-
         try{
             if(userid=='' || nickname =='' || userpw=='' || confirmPassword==''|| phonenumber==''){
                 alert('빈칸은 있을 수 없다.')
@@ -92,29 +89,29 @@ const Register = () => {
                         <Input
                         name="userid" onChange={onNameHandler}
                         placeholder="input userid"
-                        style={{width:'190%'}}
+                        style={{width:'149%'}}
                         />
                         <Input
                         name="nickname" onChange={onNickname}
                         placeholder="input nickname"
-                        style={{width:'190%'}}
+                        style={{width:'149%'}}
                         />
                         <Input.Password
                         name="userpw" onChange={onPasswordHandler}onPhoneHandler
                         placeholder="input password"
-                        style={{width:'190%'}}
+                        style={{width:'149%'}}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
                         <Input.Password
                         name="userpw" onChange={onConfirmPasswordHandler}
                         placeholder="input password"
-                        style={{width:'190%'}}
+                        style={{width:'149%'}}
                         iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                         />
                         <Input
                         name="phonenumber" onChange={onPhoneHandler}
                         placeholder="input phone number"
-                        style={{width:'190%'}}
+                        style={{width:'149%'}}
                         />
                         <input type="file" onChange={onChange}/>
                     </Space>

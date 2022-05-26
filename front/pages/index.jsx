@@ -92,7 +92,7 @@ const Index = (props) => {
                           minHeight:685,
                           maxWidth:550,
                           maxHeight:685
-                        }} cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}/>
+                        }} cover={<img src={`/static/feedImg/${info.filename}`} />}/>
                         </Card>
                     </div>
                     </>
