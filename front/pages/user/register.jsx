@@ -52,20 +52,22 @@ const Register = () => {
             }
             else{
                 const result = await axios.post('http://localhost:4001/api/user/register',body)
+                if(content){
+                    const formData = new FormData();
+                    formData.append("img", content); 
+                    formData.append("token",nickname)
+                    axios.post("http://localhost:4001/api/upload/img",formData).then(res => {
+                        
+                        // console.log(fileName); 
+                        setUploadedImg({ fileName, filePath: `${BASE_URL}/img/${fileName}` });
+                        alert("The file is successfully uploaded");
+                        
+                    }).catch(err => {
+                        console.error(err);
+                    });
+                }
                 
-                const formData = new FormData();
-                formData.append("img", content); 
-                formData.append("token",nickname)
-                axios.post("http://localhost:4001/api/upload/img",formData).then(res => {
-                    
-                    // console.log(fileName); 
-                    setUploadedImg({ fileName, filePath: `${BASE_URL}/img/${fileName}` });
-                    alert("The file is successfully uploaded");
-                    
-                })
-                .catch(err => {
-                    console.error(err);
-                });
+                
 
                 if(result.data.errno === 0){
                     alert('계정이 생성되었다.')
