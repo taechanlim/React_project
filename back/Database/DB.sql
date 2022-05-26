@@ -22,6 +22,7 @@ CREATE TABLE feed(
     likes int DEFAULT 0 not null,
     nickname varchar(15) null,
     deleteFlag char(1) DEFAULT 'y',
+    filename VARCHAR(50),
     PRIMARY KEY (idx),
     FOREIGN KEY (nickname) REFERENCES user (nickname)
 );
