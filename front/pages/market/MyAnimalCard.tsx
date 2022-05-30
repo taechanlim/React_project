@@ -56,28 +56,40 @@ const MyAnimalCard: FC<MyAnimalCardProps> = ({
 
   return (
     <>
+    
+    <div style={{float:'left',width:'26.6%',height:'600px',border:'3px solid orange',borderRadius:'10px 10px',backgroundColor:'#fafafa',marginLeft:'15.5%',marginBottom:'5%'}}>
+     
       <AnimalCard animalType={animalType} />
-      <div>
+    
+      <div style={{position:'relative',textAlign:'center'}}>
         {myAnimalPrice === "0" ? (
           <>
+          <div style={{position:'absolute'}}>
             <input
               type="number"
               value={sellPrice}
               onChange={onChangeSellPrice}
+              style={{border:'3px solid black',borderRadius:'10px 10px',fontSize:'20px',height:'40px',width:'400px',fontWeight:'bold',marginTop:'5px',marginBottom:'5px'}}
             />
-            {"Matic"}
-            <button onClick={onClickSell}>Sell</button>
+{/*            
+            {"Matic"} */}
+            <button onClick={onClickSell} style={{fontWeight:'bold',fontSize:'20px',height:'40px',width:'400px',backgroundColor:'red',color:'white',borderRadius:'10px 10px'}}>팔다!</button>
+            </div>
           </>
         ) : (
-          <div>
+          <div style={{fontWeight:'bold',fontSize:'30px'}}>
+            <div>판매 등록된 상품!</div>
             {/*
                     블록체인에서 가격을 가져올때 fromWei
                     fromWei 가격에 맞게 알아서 0을 붙여줌.
                 */}
-            {web3.utils.fromWei(myAnimalPrice)} Matic
+            {web3.utils.fromWei(myAnimalPrice)} ETH
+
           </div>
+          
         )}
       </div>
+    </div>
     </>
   );
 };

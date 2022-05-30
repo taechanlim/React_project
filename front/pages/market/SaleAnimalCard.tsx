@@ -60,6 +60,7 @@ const SaleAnimalCard: FC<SaleAnimalCardProps> = ({
   return (
     
     <div style={{float:'left',width:'26.6%',height:'600px',border:'3px solid orange',borderRadius:'10px 10px',backgroundColor:'#fafafa',marginLeft:'15.5%',marginBottom:'5%'}}>
+      
       <AnimalCard animalType={animalType} />
       <div style={{textAlign:'center',marginLeft:'-7.5%'}}>
         <ul style={{listStyle:'none'}}>

@@ -80,16 +80,25 @@ const MyAnimal: FC<MyAnimalProps> = ({ account }) => {
 
   return (
     <>
-      <span>Sale Status : {saleStatus ? "True" : "False"}</span>
-
-      <button
+      <div>
+        <div style={{textAlign:'center',float:'left',width:'50%',height:'48px',fontSize:'30px',color:'#ffffff',backgroundColor:'violet',border:'2px solid gray'}}>
+        <span>Sale Status : {saleStatus ? "True" : "False"}</span>
+        </div>
+        <button
         onClick={onClickApproveToggle}
         background-color={saleStatus ? "red" : "blue"}
+        style={{width:'50%',height:'48px',fontSize:'30px',color:'#ffffff',backgroundColor:'violet',border:'2px solid gray'}}
       >
         {saleStatus ? "Cancel" : "Approve"}
       </button>
+      </div>
+      
 
-      <div>
+      <div style={{}}>
+        <div style={{position:'absolute'}}>
+        <img src="../../static/market.jpg" style={{position:'relative',width:'100%',height:'3000px',zIndex:"0"}}></img>
+        </div>
+        <div style={{zIndex:'3',position:'relative',paddingTop:'20px'}}>
         {animalCardArray &&
           animalCardArray.map((v, i) => {
             return (
@@ -103,6 +112,7 @@ const MyAnimal: FC<MyAnimalProps> = ({ account }) => {
               />
             );
           })}
+          </div>
       </div>
     </>
   );

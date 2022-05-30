@@ -48,9 +48,10 @@ const SaleAnimal: FC<SaleAnimalProps> = ({ account }) => {
   return (
     <div>
       <div style={{position:'absolute'}}>
+      <div style={{fontWeight:'bold',fontSize:'25px',border:'3px solid purple',borderRadius:'2px 2px',textAlign:'center'}}>여긴 거래소야!</div>
       <img src="../../static/market.jpg" style={{position:'relative',width:'100%',height:'3000px',zIndex:"0"}}></img>
       </div>
-      <div style={{zIndex:'3',position:'relative'}}>
+      <div style={{zIndex:'3',position:'relative',paddingTop:'60px'}}>
       
       {saleAnimalCardArray &&
         saleAnimalCardArray.map((v, i) => {

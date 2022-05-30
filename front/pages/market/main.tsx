@@ -42,10 +42,33 @@ const Main: FC<MainProps> = ({ account }) => {
         <>
             {   
                 newAnimalType
-                ? ( <AnimalCard animalType={newAnimalType} />)
-                : ( <span>Let's mint Animal Card!!!</span>)
+                ?   <>
+                    <div style={{position:'relative'}}>
+                        <img src="../../static/market.jpg" style={{position:'absolute',width:'100%',height:'700px',zIndex:"0"}}></img>
+                        <span style={{position:'absolute',zIndex:'10',fontWeight:'bold',fontSize:'50px',color:'black',marginTop:'10%',marginLeft:'20%'}}>카드를 만들자!</span>
+                        <button onClick={onClickMint} style={{width:'260px',height:'100px',position:'absolute',zIndex:'10',marginTop:'15%',marginLeft:'20%',border:'3px solid orange',borderRadius:'10px 10px',fontSize:'60px',fontWeight:'bold',boxShadow:'0px 0px 20px 10px orange'}} >다시만들기</button>
+                        <div style={{position:'absolute',zIndex:'10',fontWeight:'bold',fontSize:'50px',color:'black',marginTop:'0.5%',marginLeft:'50%'}}>사진이 추가되었어 ↓</div>
+                        <div style={{position:'absolute',zIndex:"10",float:'left',width:'26.3%',height:'505px',border:'3px solid orange',borderRadius:'10px 10px',backgroundColor:'#fafafa',marginLeft:'50%',marginBottom:'5%',marginTop:'5%',boxShadow:'0px 0px 30px 3px orange'}}>
+                        <AnimalCard animalType={newAnimalType}/>
+                        </div>
+                        
+                    </div>
+                    </>
+                : ( 
+                    <>
+                    <div style={{position:'relative'}}>
+                        <img src="../../static/market.jpg" style={{position:'absolute',width:'100%',height:'700px',zIndex:"0"}}></img>
+                        <span style={{position:'absolute',zIndex:'10',fontWeight:'bold',fontSize:'50px',color:'black',marginTop:'10%',marginLeft:'20%'}}>카드를 만들자!</span>
+                        <button onClick={onClickMint} style={{width:'260px',height:'100px',position:'absolute',zIndex:'10',marginTop:'15%',marginLeft:'20%',border:'3px solid orange',borderRadius:'10px 10px',fontSize:'60px',fontWeight:'bold',boxShadow:'0px 0px 20px 10px orange'}} >MINT</button>
+                        
+                        <div style={{position:'absolute',zIndex:"10",float:'left',width:'26.3%',height:'505px',border:'3px solid orange',borderRadius:'10px 10px',backgroundColor:'#fafafa',marginLeft:'50%',marginBottom:'5%',marginTop:'5%',boxShadow:'0px 0px 30px 3px orange'}}>
+
+                        </div>
+                    </div>
+                    
+                    </>)
             }
-            <button onClick={onClickMint} >Mint</button>
+            
         </>
     )
 };
