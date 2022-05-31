@@ -5,7 +5,7 @@ import './App.css'
 
 //layout.module.css
 const App = ({Component,pageProps}) => {
-    return(
+    return( 
         <>
             <DefaultLayout>
             <div className="App" style={{

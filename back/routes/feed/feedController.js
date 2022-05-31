@@ -70,7 +70,7 @@ exports.list2 = async (req,res)=>{
 exports.delete = async (req,res)=>{
     
     const {idx} = req.body
-    console.log(idx)
+    
     const sql = `DELETE from feed WHERE idx=${idx}`
     const sql2 = `set foreign_key_checks=0`
     const sql3 = `set foreign_key_checks=1`
