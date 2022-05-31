@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"../node_modules/next/dist/client/index.js -> ../pages/_error":{id:89894,files:["static/chunks/894.1d453c233c9d153f.js"]},"market/reportWebVitals.tsx -> web-vitals":{id:82131,files:["static/chunks/131.004cff59af58f8c6.js"]}};
